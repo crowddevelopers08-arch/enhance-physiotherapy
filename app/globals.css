@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1f2b2a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  /* Khula for the whole landing page (headings that use font-serif too) */
+  --font-sans: var(--primary-font), Arial, Helvetica, sans-serif;
+  --font-serif: var(--primary-font), Arial, Helvetica, sans-serif;
+  --font-weight-medium: 600;
+
+  --animate-marquee: marquee 70s linear infinite;
+  --animate-dot-slide: dot-slide 3.2s ease-in-out infinite;
+
+  /* Hero entrance (plays on page load; delays set per element) */
+  --animate-hero-left: hero-left 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-hero-right: hero-right 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-hero-up: hero-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-hero-down: hero-down 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-hero-zoom: hero-zoom 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes hero-left {
+    from {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+  }
+  @keyframes hero-right {
+    from {
+      opacity: 0;
+      transform: translateX(60px);
+    }
+  }
+  @keyframes hero-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+  }
+  @keyframes hero-down {
+    from {
+      opacity: 0;
+      transform: translateY(-24px);
+    }
+  }
+  @keyframes hero-zoom {
+    from {
+      opacity: 0;
+      transform: scale(1.12);
+    }
+  }
+
+  /* Dot travels along its line and back */
+  @keyframes dot-slide {
+    0%,
+    100% {
+      left: 0;
+    }
+    50% {
+      left: calc(100% - 14px);
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* Nav links glide to their section and stop just above it */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [class*="animate-hero-"] {
+    animation: none !important;
+  }
+}
+
+/* Scroll reveal (see components/ScrollReveal.tsx). Sliding elements must not cause sideways scroll. */
+html,
+body {
+  overflow-x: clip;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  transition-delay: var(--reveal-delay, 0ms) !important;
+}
+[data-reveal="left"] {
+  transform: translateX(-56px);
+}
+[data-reveal="right"] {
+  transform: translateX(56px);
+}
+[data-reveal="up"] {
+  transform: translateY(36px);
+}
+[data-reveal="zoom"] {
+  transform: scale(1.08);
+}
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--primary-font), Arial, Helvetica, sans-serif;
+}
