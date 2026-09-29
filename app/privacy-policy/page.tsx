@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SimpleHeader from "../../components/SimpleHeader";
 import SectionLabel from "../../components/SectionLabel";
+import TodayDate from "../../components/TodayDate";
 import Footer from "@/components/simplefooter";
 
 export const metadata: Metadata = {
@@ -92,7 +93,7 @@ export default function PrivacyPolicyPage() {
               and protects your personal information.
             </p>
             <span className="mt-[18px] text-[13px] font-medium uppercase tracking-[0.12em] text-[#6b8440]">
-              Last updated: September 28, 2026
+              Last updated: <TodayDate />
             </span>
           </div>
         </section>

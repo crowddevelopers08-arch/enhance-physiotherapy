@@ -102,8 +102,8 @@ function ConditionCard({ condition, hidden = false }: { condition: Condition; hi
             <h3 className="flex min-h-[2.6em] items-center text-[20px] font-medium leading-[1.3] text-[#1c1f1a] xl:text-[22px]">
               {condition.title}
             </h3>
-            <span className="mt-[18px] block h-px w-[46px] bg-[#dcdcd4]" />
-            <p className="mt-[20px] max-w-[280px] text-[15px] leading-[26px] text-[#3a3d36] transition-colors duration-300 group-hover:text-[#6b8440] xl:text-[16px]">
+            <span className="mt-[18px] hidden h-px w-[46px] bg-[#dcdcd4] sm:block" />
+            <p className="mt-[10px] max-w-[280px] sm:mt-[20px] text-[15px] leading-[26px] text-[#3a3d36] transition-colors duration-300 group-hover:text-[#6b8440] xl:text-[16px]">
               {condition.description}
             </p>
           </div>

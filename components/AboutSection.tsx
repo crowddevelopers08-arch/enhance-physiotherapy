@@ -39,7 +39,7 @@ export default function AboutSection() {
                 alt="Physiotherapist checking a patient's shoulder posture"
                 fill
                 sizes="(min-width: 1024px) 20vw, 40vw"
-                className="object-cover object-[48%_50%]"
+                className="object-cover object-[58%_40%]"
               />
             </div>
           </div>
