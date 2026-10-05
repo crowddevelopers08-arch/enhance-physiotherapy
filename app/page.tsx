@@ -4,6 +4,7 @@ import WhyChooseUs from "../components/whychoosseus";
 import ProcessSteps from "../components/ProcessSteps";
 import AboutSection from "../components/AboutSection";
 import AboutClinicSection from "../components/AboutClinicSection";
+import TestimonialsSection from "../components/TestimonialsSection";
 import FaqSection from "../components/FaqSection";
 import FinalCtaSection from "../components/FinalCtaSection";
 import Footer from "../components/Footer";
@@ -17,6 +18,7 @@ export default function Home() {
       <ProcessSteps />
       <AboutSection />
       <AboutClinicSection />
+      <TestimonialsSection />
       <FaqSection />
       <FinalCtaSection />
       <Footer />

@@ -6,7 +6,7 @@ export default function FinalCtaSection() {
       <div className="relative mx-auto w-full max-w-[1500px] overflow-hidden rounded-[24px] sm:rounded-[32px]">
         {/* Background image + brand-green overlay */}
         <Image
-          src="/about/arm-stretch.jpg"
+          src="/fta-image.png"
           alt=""
           fill
           sizes="(min-width: 1500px) 1500px, 100vw"

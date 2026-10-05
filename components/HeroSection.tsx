@@ -179,15 +179,23 @@ export default function HeroSection() {
         <div className="relative mx-auto h-[calc(100svh-94px)] min-h-[600px] w-full max-w-[1826px] overflow-hidden rounded-[28px] md:h-[min(calc(100svh-106px),900px)] md:min-h-[540px] md:rounded-[34px] lg:h-[min(calc(100svh-116px),48vw)] 2xl:h-[min(calc(100svh-125px),48vw)] 2xl:rounded-[40px]">
           {/* Background image */}
           <Image
-            src="/hero.jpg"
-            alt="Physiotherapist treating a patient at home in Bangalore"
+            src="/banner-mble.png"
+            alt="Physiotherapist guiding a patient through a rehabilitation exercise"
             fill
-            priority
-            sizes="100vw"
-            className="origin-[46%_62%] scale-[1.38] animate-hero-zoom object-cover object-[50%_40%]"
+            preload
+            sizes="(min-width: 768px) 0px, 96vw"
+            className="object-cover object-[50%_62%] md:hidden"
           />
-          {/* Dark warm overlay */}
-          <div className="absolute inset-0 bg-[#1f2616]/40" />
+          <Image
+            src="/banner-1.png"
+            alt="Physiotherapist guiding a patient through a rehabilitation exercise"
+            fill
+            preload
+            sizes="(min-width: 1900px) 1826px, 96vw"
+            className="hidden object-cover object-[50%_62%] md:block md:object-[50%_65%]"
+          />
+          {/* Keep the text readable while preserving the treatment scene. */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1f2616]/55 via-[#1f2616]/40 to-[#1f2616]/25" />
 
           {/* Content */}
           <div className="relative z-10 flex h-full flex-col items-center justify-center px-5 pb-[148px] pt-[24px] text-center lg:pb-[118px] 2xl:pb-[112px] lg:mb-[20px]">

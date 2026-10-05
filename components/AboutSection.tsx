@@ -14,7 +14,7 @@ export default function AboutSection() {
           {/* Large portrait */}
           <div className="relative aspect-[529/685] overflow-hidden lg:aspect-auto lg:h-full rounded-[18px] sm:rounded-[28px]">
             <Image
-              src="/about/therapist-portrait.jpg"
+              src="/DSC03790.JPG"
               alt="Smiling physiotherapist in the treatment room"
               fill
               sizes="(min-width: 1024px) 30vw, 58vw"
@@ -26,7 +26,7 @@ export default function AboutSection() {
           <div className="flex flex-col gap-[7.5%] lg:h-full lg:gap-[26px]">
             <div className="relative aspect-[362/305] overflow-hidden lg:aspect-auto lg:flex-[305] rounded-[18px] sm:rounded-[28px]">
               <Image
-                src="/about/arm-stretch.jpg"
+                src="/DSC03775.JPG"
                 alt="Physiotherapist guiding a patient through an arm stretch"
                 fill
                 sizes="(min-width: 1024px) 20vw, 40vw"
@@ -35,7 +35,7 @@ export default function AboutSection() {
             </div>
             <div className="relative aspect-[362/353] overflow-hidden lg:aspect-auto lg:flex-[353] rounded-[18px] sm:rounded-[28px]">
               <Image
-                src="/about/posture-check.jpg"
+                src="/en-doc-1.JPG"
                 alt="Physiotherapist checking a patient's shoulder posture"
                 fill
                 sizes="(min-width: 1024px) 20vw, 40vw"
@@ -93,7 +93,7 @@ export default function AboutSection() {
           <div className="mt-[24px] flex flex-wrap items-center justify-between gap-x-6 gap-y-[6px]">
             <div className="flex min-w-0 items-center gap-[12px] sm:gap-[18px]">
               <div className="relative h-[46px] w-[46px] shrink-0 overflow-hidden rounded-full ring-2 ring-white sm:h-[54px] sm:w-[54px]">
-                <Image src="/about/therapist-avatar.jpg" alt="" fill sizes="54px" className="object-cover" />
+                <Image src="/DSC03787.JPG" alt="" fill sizes="54px" className="object-cover" />
               </div>
               <div className="flex flex-col">
                 <span className="whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.02em] text-[#4a4e45] sm:text-[14px]">
@@ -104,10 +104,6 @@ export default function AboutSection() {
                 </span>
               </div>
             </div>
-
-            <span className={`${signatureFont.className} ml-auto shrink-0 -rotate-6 text-[36px] leading-none text-[#6b8440] sm:text-[56px]`}>
-              Basnett
-            </span>
           </div>
 
           {/* Button */}

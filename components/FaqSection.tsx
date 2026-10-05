@@ -81,11 +81,18 @@ export default function FaqSection() {
             <div className="relative rounded-t-[999px] rounded-b-[28px] border border-[#c9d4b4] p-[12px]">
               <div className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[20px]">
                 <Image
-                  src="/conditions/home-physiotherapy.jpg"
+                  src="/fta-mble.png"
+                  alt="Guided rehabilitation exercises in a physiotherapy studio"
+                  fill
+                  sizes="(min-width: 768px) 0px, 90vw"
+                  className="object-cover object-[50%_65%] md:hidden"
+                />
+                <Image
+                  src="/faq-images.JPG"
                   alt="Physiotherapist guiding a patient through a leg stretch at home"
                   fill
                   sizes="(min-width: 1024px) 30vw, 90vw"
-                  className="object-cover object-[62%_50%]"
+                  className="hidden object-cover object-[62%_50%] md:block"
                 />
               </div>
 

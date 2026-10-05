@@ -6,13 +6,13 @@ const conditions = [
   {
     title: "Neuro Rehabilitation",
     description: "Support for neurological conditions with guided therapy to improve movement, balance, and daily function.",
-    image: "/conditions/neuro-rehabilitation.jpg",
+    image: "/en-images-1.JPG",
     alt: "Physiotherapist guiding a patient's arm movement",
   },
   {
     title: "Orthopedic Rehabilitation",
     description: "Personalised care for bone, joint, muscle, and spine-related conditions to improve mobility and recovery.",
-    image: "/conditions/orthopedic-rehabilitation.jpg",
+    image: "/en-images-2.JPG",
     alt: "Physiotherapist mobilising a patient's hip and leg",
   },
   {
@@ -24,13 +24,13 @@ const conditions = [
   {
     title: "Home Physiotherapy",
     description: "Professional physiotherapy sessions delivered at your home for convenient and comfortable recovery.",
-    image: "/conditions/home-physiotherapy.jpg",
+    image: "/enhance-ban-1.JPG",
     alt: "Physiotherapist treating a patient in a comfortable home setting",
   },
   {
     title: "Sports Physiotherapy",
     description: "Rehabilitation support for sports injuries, improving strength, mobility, and performance.",
-    image: "/conditions/sports-physiotherapy.jpg",
+    image: "/en-images-3.JPG",
     alt: "Physiotherapist stretching a patient's leg during sports rehab",
   },
   {
@@ -58,6 +58,62 @@ const conditions = [
     alt: "Healthy bowl of fresh vegetables and grains",
   },
 ];
+// const conditions = [
+//   {
+//     title: "Neuro Rehabilitation",
+//     description: "Support for neurological conditions with guided therapy to improve movement, balance, and daily function.",
+//     image: "/conditions/neuro-rehabilitation.jpg",
+//     alt: "Physiotherapist guiding a patient's arm movement",
+//   },
+//   {
+//     title: "Orthopedic Rehabilitation",
+//     description: "Personalised care for bone, joint, muscle, and spine-related conditions to improve mobility and recovery.",
+//     image: "/conditions/orthopedic-rehabilitation.jpg",
+//     alt: "Physiotherapist mobilising a patient's hip and leg",
+//   },
+//   {
+//     title: "Pain Management",
+//     description: "Guided physiotherapy techniques to help manage acute and chronic pain conditions.",
+//     image: "/conditions/pain-management.jpg",
+//     alt: "Therapist applying kinesiology tape to a patient's lower back",
+//   },
+//   {
+//     title: "Home Physiotherapy",
+//     description: "Professional physiotherapy sessions delivered at your home for convenient and comfortable recovery.",
+//     image: "/conditions/home-physiotherapy.jpg",
+//     alt: "Physiotherapist treating a patient in a comfortable home setting",
+//   },
+//   {
+//     title: "Sports Physiotherapy",
+//     description: "Rehabilitation support for sports injuries, improving strength, mobility, and performance.",
+//     image: "/conditions/sports-physiotherapy.jpg",
+//     alt: "Physiotherapist stretching a patient's leg during sports rehab",
+//   },
+//   {
+//     title: "Women's Health Physiotherapy",
+//     description: "Specialised care for women’s health concerns and recovery needs.",
+//     image: "/conditions/womens-health.jpg",
+//     alt: "Smiling female patient with her physiotherapist",
+//   },
+//   {
+//     title: "Post-Operative Rehabilitation & Prehabilitation",
+//     description: "Structured support before and after surgery to improve strength, movement, and recovery.",
+//     image: "/conditions/post-operative-rehabilitation.jpg",
+//     alt: "Therapist applying support tape to a patient's shoulder",
+//   },
+//   {
+//     title: "General Physiotherapy",
+//     description: "Support for improving flexibility, strength, posture, and overall physical wellness.",
+//     image: "/conditions/general-physiotherapy.jpg",
+//     alt: "Therapist assessing a patient's shoulder posture",
+//   },
+//   {
+//     title: "Nutrition & Diet",
+//     description: "Personalised nutrition guidance to support recovery, wellness, and healthy lifestyle goals.",
+//     image: "/conditions/nutrition-diet.jpg",
+//     alt: "Healthy bowl of fresh vegetables and grains",
+//   },
+// ];
 
 type Condition = (typeof conditions)[number];
 
