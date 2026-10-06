@@ -1,40 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import FooterTimings from "./FooterTimings";
 
 type IconProps = { className?: string };
-
-const columns = [
-  {
-    title: "Quick Links",
-    links: [
-      { label: "Home", href: "/" },
-      { label: "Conditions", href: "/#conditions" },
-      { label: "Why Choose Us", href: "/#why-choose-us" },
-      { label: "How It Works", href: "/#how-it-works" },
-      { label: "FAQ", href: "/#faq" },
-    ],
-  },
-  {
-    title: "About Us",
-    links: [
-      { label: "About the Doctor", href: "/#about" },
-      { label: "About the Clinic", href: "/#about-clinic" },
-      { label: "How Home Visits Work", href: "/#how-it-works" },
-      { label: "Book an Appointment", href: "/#appointment" },
-    ],
-  },
-  {
-    title: "Conditions We Help With",
-    links: [
-      { label: "Neuro Rehabilitation", href: "/#conditions" },
-      { label: "Orthopedic Rehabilitation", href: "/#conditions" },
-      { label: "Pain Management", href: "/#conditions" },
-      { label: "Home Physiotherapy", href: "/#conditions" },
-      { label: "Sports Physiotherapy", href: "/#conditions" },
-    ],
-  },
-];
 
 const PhoneIcon = ({ className }: IconProps) => (
   <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -82,13 +49,7 @@ const PinterestIcon = ({ className }: IconProps) => (
   </svg>
 );
 
-const socials = [
-  { label: "WhatsApp", href: "https://wa.me/917204441668", Icon: WhatsappIcon },
-  { label: "Share on Facebook", href: "https://www.facebook.com/sharer/sharer.php?u=https://www.enhancephysiotherapy.in", Icon: FacebookIcon },
-  { label: "Share on X", href: "https://x.com/i/jf/onboarding/web?redirect_after_login=%2Fintent%2Ftweet%3Ftext%3DCheck%2Bout%2B%26url%3Dhttps%3A%2F%2Fwww.enhancephysiotherapy.in&mode=login", Icon: XIcon },
-  { label: "Share on LinkedIn", href: "https://www.linkedin.com/login/?session_redirect=https%3A%2F%2Fwww.linkedin.com%2FshareArticle%3Furl%3Dhttps%3A%2F%2Fwww.enhancephysiotherapy.in", Icon: LinkedinIcon },
-  { label: "Share on Pinterest", href: "https://in.pinterest.com/pin/create/button/?url=https://www.enhancephysiotherapy.in", Icon: PinterestIcon },
-];
+
 const MailIcon = ({ className }: IconProps) => (
   <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -111,13 +72,34 @@ const ClockIcon = ({ className }: IconProps) => (
 );
 
 const contactItems = [
-  { label: "contact@enhance-physio.com", href: "mailto:contact@enhance-physio.com", Icon: MailIcon },
+  { title: "Call Us", label: "+91 72044 41668", href: "tel:+917204441668", Icon: PhoneIcon },
+  { title: "Email", label: "contact@enhance-physio.com", href: "mailto:contact@enhance-physio.com", Icon: MailIcon },
   {
-    label: "#116, Raiyaan Arcade, HBR 1st Stage, 1st Block",
+    title: "Clinic Address",
+    label: "#116, Raiyaan Arcade, HBR 1st Stage, 1st Block, Bengaluru",
     href: "https://www.google.com/maps/search/?api=1&query=%23116%2C+Raiyaan+Arcade%2C+HBR+1st+Stage%2C+1st+Block%2C+Bangalore",
     Icon: PinIcon,
   },
 ];
+
+/* Footer column heading with the short lime underline */
+function ColumnTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <h3 className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#c3d957] md:text-[13px]">{children}</h3>
+      <span className="mt-[8px] block h-[2px] w-[56px] rounded-full bg-[#c3d957]" />
+    </>
+  );
+}
+
+/* Round lime-outlined icon badge used by each contact row */
+function IconBadge({ Icon }: { Icon: (props: IconProps) => React.ReactNode }) {
+  return (
+    <span className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full border border-[#c3d957]/40 bg-[#c3d957]/10 text-[#c3d957] transition-colors duration-200 group-hover:bg-[#c3d957] group-hover:text-[#26301c]">
+      <Icon className="h-[20px] w-[20px]" />
+    </span>
+  );
+}
 
 /* Hairline with a small dot at each end */
 function DotLine({ className = "" }: { className?: string }) {
@@ -170,53 +152,54 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Link columns */}
-        <div className="mt-[54px] grid grid-cols-2 gap-x-6 gap-y-[20px] md:grid-cols-3 lg:grid-cols-[1fr_1fr_1.15fr_1.15fr_1.35fr]">
-          {columns.map((col) => (
-            <div key={col.title}>
-              <h3 className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#c3d957] md:text-[13px]">{col.title}</h3>
-              <span className="mt-[8px] block h-[2px] w-[56px] rounded-full bg-[#c3d957]" />
-              <ul className="mt-[18px] flex flex-col gap-[6px]">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-[15px] leading-[1.7] text-white/80 transition-colors duration-200 hover:text-[#c3d957] sm:text-[17px]"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          <FooterTimings />
-
+        {/* Contact Us + Find Us (stacked on mobile/tablet, side by side on desktop) */}
+        <div className="mt-[48px] grid grid-cols-1 gap-[36px] lg:mt-[54px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.7fr)] lg:gap-[56px] xl:gap-[72px]">
           {/* Contact details */}
-          <div className="col-span-2 md:col-span-1">
-            <h3 className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#c3d957] md:text-[13px]">Contact Us</h3>
-            <span className="mt-[8px] block h-[2px] w-[56px] rounded-full bg-[#c3d957]" />
-            <ul className="mt-[18px] flex flex-col gap-[12px] text-[15px] leading-[1.6] text-white/80 sm:text-[17px]">
-              {contactItems.map(({ label, href, Icon }) => (
-                <li key={label}>
+          <div className="flex flex-col">
+            <ColumnTitle>Contact Us</ColumnTitle>
+            <ul className="mt-[22px] flex flex-col gap-[14px]">
+              {contactItems.map(({ title, label, href, Icon }) => (
+                <li key={title}>
                   <a
                     href={href}
                     {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="flex items-start gap-[12px] transition-colors duration-200 hover:text-[#c3d957]"
+                    className="group flex items-center gap-[16px] rounded-[18px] border border-[#4f6136]/70 bg-white/[0.03] p-[14px] transition-colors duration-200 hover:border-[#c3d957]/60 hover:bg-white/[0.06] sm:p-[16px]"
                   >
-                    <Icon className="mt-[3px] h-[18px] w-[18px] shrink-0 text-[#c3d957]" />
-                    <span>{label}</span>
+                    <IconBadge Icon={Icon} />
+                    <span className="flex min-w-0 flex-col">
+                      <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/50">{title}</span>
+                      <span className="mt-[2px] break-words text-[15px] leading-[1.5] text-white/90 transition-colors duration-200 group-hover:text-[#c3d957] sm:text-[17px]">
+                        {label}
+                      </span>
+                    </span>
                   </a>
                 </li>
               ))}
-              <li className="flex items-start gap-[12px]">
-                <ClockIcon className="mt-[3px] h-[18px] w-[18px] shrink-0 text-[#c3d957]" />
-                <span>
-                  Open till <span className="font-semibold text-white">8:00 PM</span>
+              <li className="flex items-center gap-[16px] rounded-[18px] border border-[#4f6136]/70 bg-white/[0.03] p-[14px] sm:p-[16px]">
+                <IconBadge Icon={ClockIcon} />
+                <span className="flex flex-col">
+                  <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/50">Timings</span>
+                  <span className="mt-[2px] text-[15px] leading-[1.5] text-white/90 sm:text-[17px]">
+                    Open till <span className="font-semibold text-white">8:00 PM</span>
+                  </span>
                 </span>
               </li>
             </ul>
+          </div>
+
+          {/* Map */}
+          <div className="flex flex-col">
+            <ColumnTitle>Find Us</ColumnTitle>
+            <div className="mt-[22px] min-h-[280px] flex-1 overflow-hidden rounded-[22px] border border-[#4f6136] bg-[#2f3a23] sm:min-h-[340px] lg:min-h-[360px]">
+              <iframe
+                src="https://maps.google.com/maps?q=Enhance%20Physiotherapy%20and%20Wellness%2C%20HBR%20Layout%201st%20Block%2C%20Kadugondanahalli%2C%20Bengaluru%20560084&z=16&output=embed"
+                title="Enhance Physiotherapy and Wellness location on Google Maps"
+                className="block h-full min-h-[280px] w-full border-0 sm:min-h-[340px] lg:min-h-[360px]"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </div>
           </div>
         </div>
 
@@ -224,25 +207,12 @@ export default function Footer() {
         <DotLine className="mt-[32px] w-full" />
 
         {/* Bottom bar */}
-        <div className="mt-[30px] flex flex-col items-center gap-[20px] text-center md:grid md:grid-cols-3 md:items-center md:gap-0 md:text-left">
+        <div className="mt-[30px] flex flex-col items-center gap-[12px] text-center md:flex-row md:justify-between md:gap-6 md:text-left">
           <p className="text-[15px] leading-[1.7] text-white/80">2026 &copy; Enhance Physiotherapy &amp; Wellness. All rights reserved.</p>
 
           <div className="flex items-center justify-center gap-[8px] text-[15px] leading-[1.7] text-white/80">
             <span aria-hidden="true" className="h-[5px] w-[5px] rounded-full bg-[#6b8440]" />
             <a href="/privacy-policy" className="transition-colors duration-200 hover:text-[#c3d957]">Privacy Policy</a>
-          </div>
-
-          <div className="flex items-center justify-end gap-[32px] md:pr-[12px]">
-            {socials.map(({ label, href, Icon }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label} className="text-[#eef2e6] transition-colors duration-200 hover:text-[#c3d957]">
-                <Icon className="h-[21px] w-[21px]" />
-              </a>
-            ))}
           </div>
         </div>
       </div>
