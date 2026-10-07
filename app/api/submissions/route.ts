@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse, after } from 'next/server';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -245,6 +245,33 @@ function getTelecrmStatus(result: TelecrmResponse | null) {
   return result.note || `Failed${result.statusCode ? ` (${result.statusCode})` : ''}`;
 }
 
+async function syncLead(body: SubmissionBody, timestamp: string) {
+  const telecrmResult = await pushToTeleCRM(body);
+  const telecrmStatus = getTelecrmStatus(telecrmResult);
+  const row = [
+    timestamp,
+    body.formName,
+    body.source,
+    body.name,
+    body.phone,
+    body.concern,
+    body.pageUrl,
+    telecrmStatus,
+  ];
+
+  try {
+    appendLocalRow(row);
+  } catch (csvErr) {
+    console.warn('Local CSV save skipped:', (csvErr as Error).message);
+  }
+
+  try {
+    await pushToSheet(body, timestamp, telecrmStatus);
+  } catch (gasErr) {
+    console.warn('Google Apps Script sync skipped:', (gasErr as Error).message);
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const rawBody = await req.json();
@@ -258,41 +285,12 @@ export async function POST(req: NextRequest) {
     }
 
     const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-    const telecrmResult = await pushToTeleCRM(body);
-    const telecrmStatus = getTelecrmStatus(telecrmResult);
-    const row = [
-      timestamp,
-      body.formName,
-      body.source,
-      body.name,
-      body.phone,
-      body.concern,
-      body.pageUrl,
-      telecrmStatus,
-    ];
 
-    try {
-      appendLocalRow(row);
-    } catch (csvErr) {
-      console.warn('Local CSV save skipped:', (csvErr as Error).message);
-    }
+    // Reply right away so the visitor reaches the thank-you page instantly; TeleCRM, the local CSV
+    // and the Google Sheet are synced after the response has been sent.
+    after(() => syncLead(body, timestamp));
 
-    let excelStatus = getSheetWebhookUrl() ? 'failed' : 'not_configured';
-    let excelError = '';
-    try {
-      const sheetResult = await pushToSheet(body, timestamp, telecrmStatus);
-      if (sheetResult !== null) excelStatus = 'synced';
-    } catch (gasErr) {
-      excelError = (gasErr as Error).message;
-      console.warn('Google Apps Script sync skipped:', excelError);
-    }
-
-    return NextResponse.json({
-      success: true,
-      excel: excelStatus,
-      excelError,
-      telecrm: telecrmResult,
-    });
+    return NextResponse.json({ success: true });
   } catch (err) {
     console.error('Submission error:', err);
     return NextResponse.json({ success: false, error: 'Server error' }, { status: 500 });
