@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SimpleHeader from "../../components/SimpleHeader";
 import Footer from "@/components/simplefooter";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Thank You | Enhance Physiotherapy & Wellness",
@@ -18,6 +19,12 @@ const nextSteps = [
 export default function ThankYouPage() {
   return (
     <>
+      {/* Event snippet for Submit Lead | Physio LP | conversion page */}
+      <Script id="google-ads-conversion" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+(window.gtag || function(){dataLayer.push(arguments);})('event', 'conversion', {'send_to': 'AW-18497587243/2u9aCMjAvpUdEKuQq_RE'});`}
+      </Script>
+
       <SimpleHeader />
 
       <main className="flex flex-1 items-center bg-[#eef2e6] px-5 py-[64px] font-sans md:px-8 lg:py-[38px]">
