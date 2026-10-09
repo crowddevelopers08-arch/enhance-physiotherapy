@@ -11,12 +11,14 @@
  */
 
 const SHEET_NAME = 'enhance-physio-leads';
+const REVIEW_SHEET_NAME = 'Review Leads';
 const HEADERS = ['Timestamp', 'Form Name', 'Source', 'Name', 'Phone', 'Concern', 'URL', 'TeleCRM'];
 
-function getSheet_() {
+function getSheet_(sheetName) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
-  let sheet = ss.getSheetByName(SHEET_NAME);
-  if (!sheet) sheet = ss.insertSheet(SHEET_NAME);
+  const targetName = sheetName === REVIEW_SHEET_NAME ? REVIEW_SHEET_NAME : SHEET_NAME;
+  let sheet = ss.getSheetByName(targetName);
+  if (!sheet) sheet = ss.insertSheet(targetName);
 
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(HEADERS);
@@ -35,7 +37,7 @@ function doPost(e) {
   lock.waitLock(10000);
   try {
     const body = JSON.parse((e && e.postData && e.postData.contents) || '{}');
-    const sheet = getSheet_();
+    const sheet = getSheet_(body.sheetName || body.formName);
 
     const row = [
       body.timestamp || Utilities.formatDate(new Date(), 'Asia/Kolkata', 'dd/MM/yyyy, HH:mm:ss'),

@@ -101,6 +101,7 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
     body: JSON.stringify({
       timestamp,
       formName: body.formName,
+      sheetName: body.formName === 'Review Leads' ? 'Review Leads' : 'enhance-physio-leads',
       source: body.source,
       name: body.name,
       phone: body.phone,
