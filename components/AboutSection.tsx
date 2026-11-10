@@ -1,8 +1,12 @@
 import Image from "next/image";
 import SectionLabel from "./SectionLabel";
-import { Great_Vibes } from "next/font/google";
+import localFont from "next/font/local";
 
-const signatureFont = Great_Vibes({ subsets: ["latin"], weight: "400" });
+const signatureFont = localFont({
+  src: "../app/fonts/great-vibes-400.woff2",
+  weight: "400",
+  style: "normal",
+});
 
 export default function AboutSection() {
   return (

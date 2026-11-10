@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
-import { Khula } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import BookingModal from "../components/BookingModal";
 import ScrollReveal from "../components/ScrollReveal";
 
 // Khula has no 500 weight; globals.css maps font-medium to 600
-const khula = Khula({
+const khula = localFont({
   variable: "--primary-font",
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "700", "800"],
+  src: [
+    { path: "./fonts/khula-300.woff2", weight: "300", style: "normal" },
+    { path: "./fonts/khula-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/khula-600.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/khula-700.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/khula-800.woff2", weight: "800", style: "normal" },
+  ],
 });
 
 export const metadata: Metadata = {
