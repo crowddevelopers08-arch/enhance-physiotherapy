@@ -72,11 +72,11 @@ const ClockIcon = ({ className }: IconProps) => (
 );
 
 const contactItems = [
-  { title: "Call Us", label: "+91 72044 41668", href: "tel:+917204441668", Icon: PhoneIcon },
+  { title: "Clinic Name", label: "ENHANCE PHYSIOTHERAPY & WELLNESS", Icon: PhoneIcon },
   { title: "Email", label: "contact@enhance-physio.com", href: "mailto:contact@enhance-physio.com", Icon: MailIcon },
   {
     title: "Clinic Address",
-    label: "#116, Raiyaan Arcade, HBR 1st Stage, 1st Block, Bengaluru",
+    label: "UNIT NO M-01 ON THE, MEZZANINE FLOOR NO 116 RAIYAAN ARCADE,HBR,1ST STAGE,BANAGLORE,KARNATAKA, Pin: 560043",
     href: "https://www.google.com/maps/search/?api=1&query=%23116%2C+Raiyaan+Arcade%2C+HBR+1st+Stage%2C+1st+Block%2C+Bangalore",
     Icon: PinIcon,
   },
@@ -158,13 +158,12 @@ export default function Footer() {
           <div className="flex flex-col">
             <ColumnTitle>Contact Us</ColumnTitle>
             <ul className="mt-[22px] flex flex-col gap-[14px]">
-              {contactItems.map(({ title, label, href, Icon }) => (
-                <li key={title}>
-                  <a
-                    href={href}
-                    {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="group flex items-center gap-[16px] rounded-[18px] border border-[#4f6136]/70 bg-white/[0.03] p-[14px] transition-colors duration-200 hover:border-[#c3d957]/60 hover:bg-white/[0.06] sm:p-[16px]"
-                  >
+              {contactItems.map(({ title, label, href, Icon }) => {
+                const className =
+                  "group flex items-center gap-[16px] rounded-[18px] border border-[#4f6136]/70 bg-white/[0.03] p-[14px] transition-colors duration-200 sm:p-[16px]" +
+                  (href ? " hover:border-[#c3d957]/60 hover:bg-white/[0.06]" : "");
+                const content = (
+                  <>
                     <IconBadge Icon={Icon} />
                     <span className="flex min-w-0 flex-col">
                       <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/50">{title}</span>
@@ -172,9 +171,24 @@ export default function Footer() {
                         {label}
                       </span>
                     </span>
-                  </a>
-                </li>
-              ))}
+                  </>
+                );
+                return (
+                  <li key={title}>
+                    {href ? (
+                      <a
+                        href={href}
+                        {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        className={className}
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      <div className={className}>{content}</div>
+                    )}
+                  </li>
+                );
+              })}
               <li className="flex items-center gap-[16px] rounded-[18px] border border-[#4f6136]/70 bg-white/[0.03] p-[14px] sm:p-[16px]">
                 <IconBadge Icon={ClockIcon} />
                 <span className="flex flex-col">
