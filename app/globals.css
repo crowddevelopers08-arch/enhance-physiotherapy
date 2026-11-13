@@ -125,3 +125,40 @@ body {
   color: var(--foreground);
   font-family: var(--primary-font), Arial, Helvetica, sans-serif;
 }
+
+/* Chronic-pain roadmap: dashed centre line flows along the road, a lime dot drives round it */
+@keyframes road-flow {
+  to {
+    stroke-dashoffset: -23;
+  }
+}
+.road-dashes {
+  animation: road-flow 0.9s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .road-dashes {
+    animation: none;
+  }
+  .road-dot {
+    display: none;
+  }
+}
+
+/* About section: bubbles drift gently up and down */
+@keyframes bubble-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-22px) scale(1.04);
+  }
+}
+.bubble-float {
+  animation: bubble-float 9s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bubble-float {
+    animation: none;
+  }
+}

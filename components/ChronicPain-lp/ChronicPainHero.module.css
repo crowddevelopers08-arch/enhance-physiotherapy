@@ -1,0 +1,95 @@
+.headline {
+  max-width: 14em;
+  font-size: clamp(32px, 5.4svh, 46px);
+}
+
+@media (min-width: 768px) {
+  .headline {
+    font-size: clamp(44px, 7.5svh, 68px);
+  }
+}
+
+.benefits {
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  width: 200%;
+  animation: scroll-benefits 21s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.group {
+  display: flex;
+  flex: 0 0 50%;
+  min-width: 0;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.benefit {
+  box-sizing: border-box;
+  flex: 0 0 calc(100% / 3);
+  min-width: 0;
+  padding-right: clamp(8px, 2vw, 32px);
+  overflow-wrap: anywhere;
+}
+
+/* Phones only: smaller headline, and the benefits row shows one item at a time */
+@media (max-width: 767px) {
+  .headline {
+    max-width: none;
+    font-size: clamp(27px, 7.6vw, 34px);
+  }
+
+  .track {
+    width: 600%;
+  }
+
+  .benefit {
+    padding-right: 20px;
+    overflow-wrap: normal;
+  }
+}
+
+@keyframes scroll-benefits {
+  0%, 14.285714% {
+    transform: translateX(0);
+  }
+  33.333333%, 47.619048% {
+    transform: translateX(calc(-100% / 6));
+  }
+  66.666667%, 80.952381% {
+    transform: translateX(calc(-100% / 3));
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    width: 100%;
+    min-width: 0;
+    animation: none;
+  }
+
+  .group {
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+  }
+
+  .group[aria-hidden="true"] {
+    display: none;
+  }
+
+  .benefit {
+    flex: 0 1 auto;
+    padding-right: 0;
+    white-space: normal;
+  }
+}

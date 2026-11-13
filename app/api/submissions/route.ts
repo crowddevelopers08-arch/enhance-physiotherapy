@@ -80,6 +80,13 @@ function getSheetWebhookUrl() {
   ).trim();
 }
 
+// Google Sheet tab each form's leads are written to
+function getSheetTabName(formName: string) {
+  if (formName === 'Review Leads') return 'Review Leads';
+  if (formName === 'chronic-pain-form') return 'chronic-pain-leads';
+  return 'enhance-physio-leads';
+}
+
 async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatus: string) {
   const url = getSheetWebhookUrl();
   if (!url) return null;
@@ -101,7 +108,8 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
     body: JSON.stringify({
       timestamp,
       formName: body.formName,
-      sheetName: body.formName === 'Review Leads' ? 'Review Leads' : 'enhance-physio-leads',
+      sheetName: getSheetTabName(body.formName),
+      tabName: getSheetTabName(body.formName),
       source: body.source,
       name: body.name,
       phone: body.phone,

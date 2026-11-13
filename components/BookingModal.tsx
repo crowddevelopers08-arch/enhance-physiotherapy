@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 
 export const OPEN_BOOKING_EVENT = "open-booking";
@@ -32,6 +32,8 @@ const inputBase =
  */
 export default function BookingModal() {
   const router = useRouter();
+  // The chronic-pain page has its own form popup (ChronicPainFormModal), so this one stays off there
+  const disabled = usePathname()?.startsWith("/chronic-pain") ?? false;
   const [open, setOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -39,6 +41,7 @@ export default function BookingModal() {
 
   // Open on appointment-link clicks and on the custom event
   useEffect(() => {
+    if (disabled) return;
     const onClick = (e: MouseEvent) => {
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       const link = (e.target as HTMLElement).closest("a");
@@ -54,7 +57,7 @@ export default function BookingModal() {
       document.removeEventListener("click", onClick);
       window.removeEventListener(OPEN_BOOKING_EVENT, onOpen);
     };
-  }, []);
+  }, [disabled]);
 
   // While open: lock page scroll, focus the first field, close on Escape
   useEffect(() => {

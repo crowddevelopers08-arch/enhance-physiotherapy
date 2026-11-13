@@ -4,19 +4,34 @@
  * POST: appends one lead row (sent by /api/submissions).
  * GET:  returns all leads as JSON  (…/exec)
  *       or as CSV                  (…/exec?format=csv)
+ *       add ?sheet=chronic-pain-leads (or Review Leads) to read another tab.
  *
  * Setup: open the Google Sheet > Extensions > Apps Script, paste this file,
  * then Deploy > New deployment > Web app (Execute as: Me, Who has access: Anyone).
  * Put the /exec URL in GOOGLE_APPS_SCRIPT_URL.
  */
 
-const SHEET_NAME = 'enhance-physio-leads';
-const REVIEW_SHEET_NAME = 'Review Leads';
+const SHEET_NAME = 'enhance-physio-leads';          // main landing page (default)
+const REVIEW_SHEET_NAME = 'Review Leads';           // review page
+const CHRONIC_PAIN_SHEET_NAME = 'chronic-pain-leads'; // chronic-pain landing page
 const HEADERS = ['Timestamp', 'Form Name', 'Source', 'Name', 'Phone', 'Concern', 'URL', 'TeleCRM'];
+
+// Which tab each sheetName / formName writes to. Anything unknown goes to the default tab.
+function resolveSheetName_(name) {
+  switch (name) {
+    case REVIEW_SHEET_NAME:
+      return REVIEW_SHEET_NAME;
+    case CHRONIC_PAIN_SHEET_NAME:
+    case 'chronic-pain-form':
+      return CHRONIC_PAIN_SHEET_NAME;
+    default:
+      return SHEET_NAME;
+  }
+}
 
 function getSheet_(sheetName) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const targetName = sheetName === REVIEW_SHEET_NAME ? REVIEW_SHEET_NAME : SHEET_NAME;
+  const targetName = resolveSheetName_(sheetName);
   let sheet = ss.getSheetByName(targetName);
   if (!sheet) sheet = ss.insertSheet(targetName);
 
@@ -37,7 +52,7 @@ function doPost(e) {
   lock.waitLock(10000);
   try {
     const body = JSON.parse((e && e.postData && e.postData.contents) || '{}');
-    const sheet = getSheet_(body.sheetName || body.formName);
+    const sheet = getSheet_(body.sheetName || body.tabName || body.formName);
 
     const row = [
       body.timestamp || Utilities.formatDate(new Date(), 'Asia/Kolkata', 'dd/MM/yyyy, HH:mm:ss'),
@@ -52,7 +67,7 @@ function doPost(e) {
     ];
 
     sheet.appendRow(row);
-    return json_({ success: true, row: sheet.getLastRow() });
+    return json_({ success: true, tab: sheet.getName(), row: sheet.getLastRow() });
   } catch (err) {
     return json_({ success: false, error: String(err) });
   } finally {
@@ -61,7 +76,7 @@ function doPost(e) {
 }
 
 function doGet(e) {
-  const sheet = getSheet_();
+  const sheet = getSheet_(e && e.parameter && e.parameter.sheet);
   const values = sheet.getDataRange().getDisplayValues();
   const format = e && e.parameter && e.parameter.format;
 
