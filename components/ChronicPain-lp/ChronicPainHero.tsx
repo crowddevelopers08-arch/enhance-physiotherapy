@@ -232,7 +232,7 @@ export default function ChronicPainHero() {
               <Star />
             </div>
             <span className="text-[11px] font-semibold uppercase leading-none tracking-[0.18em] text-white md:text-[12px]">
-              Trusted by 183+ Patients
+              Loved by 183+ Google Reviewers
             </span>
           </div>
         </div>
