@@ -56,7 +56,7 @@ export default function ChronicPainAbout() {
             }}
           >
             <Image
-              src="/DSC03790.JPG"
+              src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652329/DSC03790.jpg"
               alt="Our physiotherapist"
               fill
               sizes="(min-width: 1024px) 480px, 90vw"
@@ -66,10 +66,10 @@ export default function ChronicPainAbout() {
 
           {/* small round photos overlapping the figure */}
           <div className="absolute left-[2%] top-[9%] h-[112px] w-[112px] overflow-hidden rounded-full border-[6px] border-white bg-white sm:h-[136px] sm:w-[136px]">
-            <Image src="/DSC03775.JPG" alt="Our physiotherapy team" fill sizes="136px" className="object-cover object-[78%_50%]" />
+            <Image src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652328/DSC03775.jpg" alt="Our physiotherapy team" fill sizes="136px" className="object-cover object-[78%_50%]" />
           </div>
           <div className="absolute bottom-[14%] right-[2%] h-[120px] w-[120px] overflow-hidden rounded-full border-[6px] border-white bg-white sm:h-[146px] sm:w-[146px]">
-            <Image src="/en-doc-1.JPG" alt="Guided stretching session" fill sizes="146px" className="object-cover object-[50%_58%]" />
+            <Image src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652050/en-doc-1.jpg" alt="Guided stretching session" fill sizes="146px" className="object-cover object-[50%_58%]" />
           </div>
 
           {/* dashed swirl accent */}

@@ -138,7 +138,7 @@ export default function ChronicPainFormModal() {
         {/* Left: brand panel */}
         <div className="relative isolate hidden overflow-hidden bg-[#2b3320] px-[30px] text-white md:flex md:flex-col md:justify-between md:px-[34px] md:py-[34px]">
           <Image
-            src="/conditions/pain-management.jpg"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652406/pain-management.jpg"
             alt=""
             fill
             sizes="(min-width: 768px) 420px, 100vw"
@@ -149,7 +149,7 @@ export default function ChronicPainFormModal() {
           <span aria-hidden="true" className="absolute -left-[60px] -top-[60px] -z-10 h-[160px] w-[160px] rounded-full border border-white/10" />
 
           <div>
-            <Image src="/enhance-emblem.png" alt="" width={766} height={608} className="h-[44px] w-auto" />
+            <Image src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652054/enhance-emblem.png" alt="" width={766} height={608} className="h-[44px] w-auto" />
             <span className="mt-[16px] block text-[15px] font-semibold tracking-[-0.005em] text-[#c3d957] md:text-[16px]">
               Chronic Pain Care
             </span>

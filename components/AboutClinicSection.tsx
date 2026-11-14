@@ -49,7 +49,7 @@ export default function AboutClinicSection() {
         {/* Clinic card image (1015×561): box matches its ratio so the whole card shows, uncropped */}
         <div className="relative order-2 mt-[28px] aspect-[1015/561] w-full overflow-hidden rounded-[18px] border border-[#d3dac6] bg-white shadow-[0_18px_50px_rgba(38,48,28,0.08)] sm:rounded-[28px] lg:order-none lg:mt-0">
           <Image
-            src="/image.png"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652060/image.png"
             alt="Enhance Physiotherapy & Wellness – Dr. Sweata Basnett, contact details and clinic address"
             fill
             sizes="(min-width: 1710px) 820px, (min-width: 1024px) 50vw, 100vw"

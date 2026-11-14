@@ -81,7 +81,7 @@ export default function TeamSectioned() {
         {/* ================= ARCH ================= */}
         <div className="relative order-1 mx-auto h-[480px] w-full max-w-[568px] overflow-hidden rounded-t-[284px] rounded-b-[30px] bg-[#2b3320] sm:h-[560px] md:col-span-2 lg:order-2 lg:col-span-1 lg:h-auto lg:self-stretch">
           <Image
-            src="/conditions/post-operative-rehabilitation.jpg"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652407/post-operative-rehabilitation.jpg"
             alt="Physiotherapist supporting a patient's shoulder during post-surgery rehabilitation"
             fill
             sizes="(min-width: 1024px) 568px, 90vw"

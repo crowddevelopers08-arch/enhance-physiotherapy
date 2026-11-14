@@ -76,7 +76,7 @@ export default function TeamSectioned() {
         {/* ================= ARCH ================= */}
         <div className="relative order-1 mx-auto h-[480px] w-full max-w-[568px] overflow-hidden rounded-t-[284px] rounded-b-[30px] bg-[#2b3320] sm:h-[560px] md:col-span-2 lg:order-2 lg:col-span-1 lg:h-auto lg:self-stretch">
           <Image
-            src="/conditions/pain-management.jpg"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652406/pain-management.jpg"
             alt="Physiotherapist treating a patient for chronic pain"
             fill
             sizes="(min-width: 1024px) 568px, 90vw"

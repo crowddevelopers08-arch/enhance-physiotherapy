@@ -38,11 +38,11 @@ const TeamSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const teamMembers = [
-    { name: "Experienced Physiotherapists", icon: "/en-icons-1.png" },
-    { name: "Home-Based Convenience", icon: "/en-icons-2.png" },
-    { name: "Personalised Treatment Plans", icon: "/en-icons-3.png" },
-    { name: "Continuous Progress Monitoring", icon: "/en-icons-4.png" },
-    { name: "Support For Families & Caregivers", icon: "/en-icons-5.png" },
+    { name: "Experienced Physiotherapists", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652055/en-icons-1.png" },
+    { name: "Home-Based Convenience", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652055/en-icons-2.png" },
+    { name: "Personalised Treatment Plans", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652056/en-icons-3.png" },
+    { name: "Continuous Progress Monitoring", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652056/en-icons-4.png" },
+    { name: "Support For Families & Caregivers", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652056/en-icons-5.png" },
   ];
 
   // Carousel navigation

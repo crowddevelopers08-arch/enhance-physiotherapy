@@ -85,7 +85,7 @@ export default function FaqSection() {
         <div className="relative mx-auto w-full max-w-sm sm:max-w-md lg:mx-0">
           <div className="relative aspect-[4/4.6] w-full overflow-hidden lg:aspect-auto lg:h-[min(64svh,600px)] rounded-2xl border border-[#dfe8cf] shadow-[0_18px_42px_rgba(43,51,32,0.12)]">
             <Image
-              src="/faq-chronic.webp"
+              src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652057/faq-chronic.webp"
               alt="Our physiotherapist ready to answer your questions"
               fill
               className="object-cover object-[50%_20%]"

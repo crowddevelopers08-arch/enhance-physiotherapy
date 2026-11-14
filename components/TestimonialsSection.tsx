@@ -43,7 +43,7 @@ const testimonials = [
   },
 ];
 
-const avatars = ["/en-images-1.JPG", "/en-doc-1.JPG", "/en-images-2.JPG", "/en-images-3.JPG"];
+const avatars = ["https://res.cloudinary.com/b5lvyi64/image/upload/v1794652058/en-images-1.jpg", "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652050/en-doc-1.jpg", "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652058/en-images-2.jpg", "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652058/en-images-3.jpg"];
 
 function Star() {
   return (

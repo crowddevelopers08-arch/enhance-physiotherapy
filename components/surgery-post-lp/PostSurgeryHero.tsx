@@ -34,12 +34,12 @@ function PngIcon({ src, className = "" }: { src: string; className?: string }) {
 
 /* Key USPs / patient benefits */
 const usps = [
-  { label: "Personalised Rehabilitation Plans", icon: "/ps-icons-1.png" },
-  { label: "Guided Strength & Mobility Training", icon: "/ps-icons-2.png" },
-  { label: "Home Visit Options", icon: "/ps-icons-3.png" },
+  { label: "Personalised Rehabilitation Plans", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652067/ps-icons-1.png" },
+  { label: "Guided Strength & Mobility Training", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652067/ps-icons-2.png" },
+  { label: "Home Visit Options", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652067/ps-icons-3.png" },
 ];
 
-const avatars = ["/about/therapist-avatar.jpg", "/conditions/womens-health.jpg", "/conditions/general-physiotherapy.jpg", "/about/posture-check.jpg"];
+const avatars = ["https://res.cloudinary.com/b5lvyi64/image/upload/v1794652387/therapist-avatar.jpg", "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652408/womens-health.jpg", "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652403/general-physiotherapy.jpg", "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652386/posture-check.jpg"];
 
 function ArrowBadge({ className = "", dark = false }: { className?: string; dark?: boolean }) {
   return (
@@ -106,9 +106,9 @@ export default function PostSurgeryHero() {
       <header className="relative z-30 flex items-center justify-between bg-white px-5 py-4 lg:bg-transparent lg:absolute lg:inset-x-0 lg:top-0 lg:justify-start lg:px-0 lg:py-0 lg:pl-[3.3%] lg:pr-[2%] lg:pt-[1.0%]">
         {/* logo */}
         <a href="#" className="flex shrink-0 animate-hero-left items-center gap-[8px]" aria-label="Enhance Physiotherapy & Wellness – Home">
-          <Image src="/enhance-emblem.png" alt="" width={766} height={608} priority className="h-[40px] w-auto lg:h-[3.1vw]" />
+          <Image src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652054/enhance-emblem.png" alt="" width={766} height={608} priority className="h-[40px] w-auto lg:h-[3.1vw]" />
           <Image
-            src="/enhance-wordmark.png"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652055/enhance-wordmark.png"
             alt="Enhance – Be your best self"
             width={650}
             height={176}
@@ -120,7 +120,7 @@ export default function PostSurgeryHero() {
         {/* nav pill */}
         <nav className="hidden animate-hero-down items-center justify-between rounded-full bg-white px-[1.6%] [animation-delay:150ms] lg:ml-[4%] lg:flex lg:h-[3.2vw] lg:w-[33.5%]">
           {navItems.map((item) => (
-            <a key={item.label} href={item.href} className="flex items-center whitespace-nowrap text-[0.85vw] font-semibold text-[#1f2616] transition-colors duration-200 hover:text-[#6b8440]">
+            <a key={item.label} href={item.href} className="flex items-center whitespace-nowrap text-[clamp(14px,0.98vw,19px)] font-semibold text-[#1f2616] transition-colors duration-200 hover:text-[#6b8440]">
               {item.label}
             </a>
           ))}
@@ -128,7 +128,7 @@ export default function PostSurgeryHero() {
 
         {/* right controls */}
         <div className="hidden animate-hero-right items-center text-white [animation-delay:250ms] lg:ml-auto lg:flex lg:gap-[2vw]">
-          <a href="tel:+917204441668" className="flex items-center gap-[0.7vw] whitespace-nowrap text-[0.95vw] font-semibold transition-colors duration-200 hover:text-[#c3d957]" aria-label="Call +91 72044 41668">
+          <a href="tel:+917204441668" className="flex items-center gap-[0.7vw] whitespace-nowrap text-[clamp(13px,0.95vw,17px)] font-semibold transition-colors duration-200 hover:text-[#c3d957]" aria-label="Call +91 72044 41668">
             <span className="flex h-[2.6vw] w-[2.6vw] items-center justify-center rounded-full bg-white/15">
               <svg viewBox="0 0 24 24" className="h-[1.3vw] w-[1.3vw]" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M8.3 3.5 9.9 7.3a1.2 1.2 0 0 1-.3 1.4L8 10.1a11 11 0 0 0 5.9 5.9l1.4-1.6a1.2 1.2 0 0 1 1.4-.3l3.8 1.6a1.2 1.2 0 0 1 .7 1.3l-.4 2.4a1.9 1.9 0 0 1-1.9 1.6C10.4 21 3 13.6 3 5a1.9 1.9 0 0 1 1.6-1.9l2.4-.4a1.2 1.2 0 0 1 1.3.8Z" />
@@ -140,7 +140,7 @@ export default function PostSurgeryHero() {
           </a>
           <a
             href="#appointment"
-            className="flex items-center gap-[0.9vw] whitespace-nowrap rounded-full border border-white/80 py-[0.3vw] pl-[1.2vw] pr-[0.3vw] text-[0.85vw] font-semibold transition-colors duration-200 hover:bg-white/10"
+            className="flex items-center gap-[0.9vw] whitespace-nowrap rounded-full border border-white/80 py-[0.3vw] pl-[1.2vw] pr-[0.3vw] text-[16px] font-medium transition-colors duration-200 hover:bg-white/10"
           >
             Book Your Consultation
             <ArrowBadge className="h-[2.1vw] w-[2.1vw]" />
@@ -168,12 +168,12 @@ export default function PostSurgeryHero() {
         >
           <nav className="flex flex-col gap-4">
             {navItems.map((item) => (
-              <a key={item.label} href={item.href} onClick={() => setMenuOpen(false)} className="text-[17px] font-semibold text-[#1f2616] hover:text-[#6b8440]">
+              <a key={item.label} href={item.href} onClick={() => setMenuOpen(false)} className="text-[19px] font-semibold text-[#1f2616] hover:text-[#6b8440]">
                 {item.label}
               </a>
             ))}
           </nav>
-          <a href="#appointment" onClick={() => setMenuOpen(false)} className="mt-6 flex h-[52px] items-center justify-center rounded-full bg-[#2b3320] text-[16px] font-semibold text-white">
+          <a href="#appointment" onClick={() => setMenuOpen(false)} className="mt-6 flex h-[52px] items-center justify-center rounded-full bg-[#2b3320] text-[16px] font-medium text-white">
             Book Your Consultation
           </a>
         </div>
@@ -215,13 +215,13 @@ export default function PostSurgeryHero() {
         <span aria-hidden="true" className="absolute -right-[10%] top-[6%] aspect-square w-[78%] rounded-full bg-[#eaf6b9]" />
         <span aria-hidden="true" className="absolute -left-[8%] bottom-[14%] aspect-square w-[34%] rounded-full border-2 border-dashed border-[#6b8440]/45" />
         <div className="relative h-[clamp(360px,calc(100svh-250px),600px)] w-full overflow-hidden rounded-t-[999px] rounded-b-[28px] border-[6px] border-white bg-[#e9ece4]">
-          <Image src="/DSC03790.JPG" alt="Dr. Sweata Basnett, physiotherapist" fill priority sizes="420px" className="object-cover object-[50%_16%]" />
+          <Image src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652329/DSC03790.jpg" alt="Dr. Sweata Basnett, physiotherapist" fill priority sizes="420px" className="object-cover object-[50%_16%]" />
         </div>
         <div className="absolute inset-x-[8%] bottom-0 flex items-center gap-[12px] rounded-[16px] bg-[#2b3320] px-[16px] py-[12px] text-white">
           <span aria-hidden="true" className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#c3d957]" />
           <span className="min-w-0">
-            <span className="block text-[15px] font-semibold leading-[1.2]">Dr. Sweata Basnett</span>
-            <span className="mt-[2px] block text-[12px] leading-[1.3] text-white/75">Physiotherapist</span>
+            <span className="block text-[16px] font-semibold leading-[1.2]">Dr. Sweata Basnett</span>
+            <span className="mt-[2px] block text-[13px] leading-[1.3] text-white/75">Physiotherapist</span>
           </span>
         </div>
       </div>
@@ -230,7 +230,7 @@ export default function PostSurgeryHero() {
       <div className="relative z-20 flex justify-center px-5 lg:hidden">
         <a
           href="#appointment"
-          className="flex w-fit animate-hero-up items-center gap-[12px] rounded-full bg-[#2b3320] py-[5px] pl-[22px] pr-[5px] text-[15px] font-semibold text-white [animation-delay:800ms]"
+          className="flex w-fit animate-hero-up items-center gap-[12px] rounded-full bg-[#2b3320] py-[5px] pl-[22px] pr-[5px] text-[16px] font-medium text-white [animation-delay:800ms]"
         >
           Book Your Consultation
           <ArrowBadge className="h-[38px] w-[38px]" />
@@ -242,7 +242,7 @@ export default function PostSurgeryHero() {
         <span aria-hidden="true" className="absolute left-[6%] right-[6%] top-[4%] aspect-square rounded-full bg-[#f3f8e6] lg:top-[17%]" />
         <div className="absolute inset-0 [-webkit-mask-image:radial-gradient(ellipse_47%_64%_at_50%_46%,#000_70%,transparent_100%)] [mask-image:radial-gradient(ellipse_47%_64%_at_50%_46%,#000_70%,transparent_100%)] lg:[-webkit-mask-image:radial-gradient(ellipse_46%_64%_at_50%_44%,#000_60%,transparent_100%)] lg:[mask-image:radial-gradient(ellipse_46%_64%_at_50%_44%,#000_60%,transparent_100%)]">
           <div className="absolute inset-x-0 bottom-0 top-0 max-lg:-top-[16%]">
-            <Image src="/DSC03790.JPG" alt="Dr. Sweata Basnett, physiotherapist" fill priority sizes="(min-width: 1024px) 38vw, 90vw" className="object-cover object-[50%_18%]" />
+            <Image src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652329/DSC03790.jpg" alt="Dr. Sweata Basnett, physiotherapist" fill priority sizes="(min-width: 1024px) 38vw, 90vw" className="object-cover object-[50%_18%]" />
           </div>
         </div>
       </div>
@@ -259,7 +259,7 @@ export default function PostSurgeryHero() {
                     className="mr-[28px] flex shrink-0 items-center gap-[14px] border-r border-[#2b3320]/20 pr-[28px] lg:mr-[2.2vw] lg:gap-[0.9vw] lg:pr-[2.2vw]"
                   >
                     <PngIcon src={u.icon} className="h-[44px] w-[44px] lg:h-[3.4vw] lg:w-[3.4vw]" />
-                    <span className="whitespace-nowrap text-[15px] font-semibold leading-[1.3] text-[#1f2616] lg:text-[0.95vw]">{u.label}</span>
+                    <span className="whitespace-nowrap text-[16px] font-semibold leading-[1.3] text-[#1f2616] lg:text-[clamp(13px,0.9vw,17px)]">{u.label}</span>
                   </li>
                 ))}
               </ul>
@@ -270,7 +270,7 @@ export default function PostSurgeryHero() {
         <div className="hidden animate-hero-up [animation-delay:1150ms] lg:mt-[2.2vw] lg:block">
           <a
             href="#appointment"
-            className="flex w-fit items-center gap-[12px] rounded-full bg-[#2b3320] py-[6px] pl-[22px] pr-[6px] text-[15px] font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5 lg:ml-[1.2vw] lg:gap-[1.2vw] lg:py-[0.35vw] lg:pl-[1.5vw] lg:pr-[0.35vw] lg:text-[0.85vw]"
+            className="flex w-fit items-center gap-[12px] rounded-full bg-[#2b3320] py-[6px] pl-[22px] pr-[6px] text-[16px] font-medium text-white transition-transform duration-200 hover:-translate-y-0.5 lg:ml-[1.2vw] lg:gap-[1.2vw] lg:py-[0.35vw] lg:pl-[1.5vw] lg:pr-[0.35vw]"
           >
             Book Your Consultation
             <ArrowBadge className="h-[36px] w-[36px] lg:h-[2.2vw] lg:w-[2.2vw]" />
@@ -282,7 +282,7 @@ export default function PostSurgeryHero() {
       <div className="relative z-20 mx-5 mb-5 mt-[22px] overflow-hidden rounded-[24px] bg-gradient-to-b from-[#46592f] to-[#2b3320] p-[22px] text-white lg:absolute lg:inset-y-0 lg:right-0 lg:mx-0 lg:mb-0 lg:mt-0 lg:w-[48.2%] lg:overflow-visible lg:rounded-none lg:bg-none lg:p-0">
         {/* title + text */}
         <div className="animate-hero-right [animation-delay:500ms] max-lg:border-b max-lg:border-white/15 max-lg:pb-[18px] lg:absolute lg:left-[50.2%] lg:top-[20.6%] lg:w-[47.9%]">
-          <h2 className="text-[18px] font-semibold leading-[1.25] lg:text-[1.2vw]">Work towards better movement, improved strength and greater independence with physiotherapy tailored to your recovery needs.</h2>
+          <h2 className="text-[22px] font-semibold leading-[1.25] lg:text-[clamp(16px,1.25vw,24px)]">Work towards better movement, improved strength and greater independence with physiotherapy tailored to your recovery needs.</h2>
           {/* <p className="mt-[8px] text-[14px] leading-[1.6] text-white/80 lg:mt-[0.5vw] lg:text-[0.78vw] lg:leading-[1.55]">
             Post-surgery physiotherapy is a specialised practice focused on restoring movement, strength and confidence through safe, guided rehabilitation.
           </p> */}
@@ -291,26 +291,26 @@ export default function PostSurgeryHero() {
         {/* phase cards */}
         <div className="mt-[18px] grid grid-cols-2 gap-[14px] lg:mt-0 lg:flex lg:items-end">
           <div className="flex animate-hero-up flex-col items-center [animation-delay:800ms] lg:absolute lg:bottom-[29.9%] lg:left-[66.6%] lg:w-[13.3%]">
-            <span className="mb-[10px] text-[16px] font-semibold tracking-[0.02em] lg:mb-[0.6vw] lg:text-[1.4vw]">Phase 1</span>
+            <span className="mb-[10px] text-[20px] font-semibold tracking-[0.02em] lg:mb-[0.6vw] lg:text-[clamp(16px,1.25vw,24px)]">Phase 1</span>
             <div className="relative h-[190px] w-full overflow-hidden rounded-[16px] lg:h-[7.2vw] lg:w-full lg:rounded-[0.9vw]">
-              <Image src="/conditions/orthopedic-rehabilitation.jpg" alt="" fill sizes="120px" className="object-cover object-[50%_40%]" />
+              <Image src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652405/orthopedic-rehabilitation.jpg" alt="" fill sizes="120px" className="object-cover object-[50%_40%]" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1f2616]/90 via-[#1f2616]/25 to-transparent" />
-              <span className="absolute bottom-[12px] right-[10px] rotate-180 text-[14px] font-semibold [writing-mode:vertical-rl] lg:bottom-[0.7vw] lg:right-[0.6vw] lg:text-[0.8vw]">Mobility</span>
+              <span className="absolute bottom-[12px] right-[10px] rotate-180 text-[16px] font-semibold [writing-mode:vertical-rl] lg:bottom-[0.7vw] lg:right-[0.6vw] lg:text-[clamp(12px,0.85vw,16px)]">Mobility</span>
             </div>
           </div>
           <div className="flex animate-hero-up flex-col items-center [animation-delay:950ms] lg:absolute lg:bottom-[29.9%] lg:left-[82.3%] lg:w-[13.5%]">
-            <span className="mb-[10px] text-[16px] font-semibold tracking-[0.02em] lg:mb-[0.6vw] lg:text-[1.4vw]">Phase 2</span>
+            <span className="mb-[10px] text-[20px] font-semibold tracking-[0.02em] lg:mb-[0.6vw] lg:text-[clamp(16px,1.25vw,24px)]">Phase 2</span>
             <div className="relative h-[190px] w-full overflow-hidden rounded-[16px] lg:h-[9.9vw] lg:w-full lg:rounded-[0.9vw]">
-              <Image src="/conditions/sports-physiotherapy.jpg" alt="" fill sizes="120px" className="object-cover object-[50%_40%]" />
+              <Image src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652407/sports-physiotherapy.jpg" alt="" fill sizes="120px" className="object-cover object-[50%_40%]" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1f2616]/90 via-[#1f2616]/25 to-transparent" />
-              <span className="absolute bottom-[12px] right-[10px] rotate-180 text-[14px] font-semibold [writing-mode:vertical-rl] lg:bottom-[0.7vw] lg:right-[0.6vw] lg:text-[0.8vw]">Strength</span>
+              <span className="absolute bottom-[12px] right-[10px] rotate-180 text-[16px] font-semibold [writing-mode:vertical-rl] lg:bottom-[0.7vw] lg:right-[0.6vw] lg:text-[clamp(12px,0.85vw,16px)]">Strength</span>
             </div>
           </div>
         </div>
 
         {/* quote + avatars */}
         <div className="mt-[20px] animate-hero-up [animation-delay:1100ms] max-lg:border-t max-lg:border-white/15 max-lg:pt-[18px] lg:absolute lg:left-[47.9%] lg:right-[4.2%] lg:top-[76.3%] lg:mt-0">
-          <p className="text-[13px] leading-[1.6] text-white/90 lg:text-right lg:text-[0.78vw] lg:leading-[1.55]">
+          <p className="text-[16px] leading-[1.6] text-white/90 lg:text-right lg:text-[clamp(13px,0.9vw,17px)] lg:leading-[1.55]">
             &ldquo;Get personalised physiotherapy support to improve mobility, rebuild strength and regain confidence in everyday movements. &rdquo;
           </p>
           <div className="mt-[10px] flex lg:mt-[0.7vw] lg:justify-end">

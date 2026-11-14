@@ -75,7 +75,7 @@ const options: Option[] = [
     title: "Home Physiotherapy",
     text: "Get professional physiotherapy support at home with guided exercises and personalised care, subject to clinical suitability, location and service availability.",
     benefits: ["Convenient care at home", "Personalised exercise guidance", "Reduced need for travel"],
-    image: "/home-physiotherapy-cost-bangalore.png",
+    image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652065/home-physiotherapy-cost-bangalore.png",
     alt: "Physiotherapist treating a patient at home",
     position: "50% 45%",
     icon: <HomeIcon />,

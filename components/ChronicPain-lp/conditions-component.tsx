@@ -5,12 +5,12 @@ import { useEffect, useRef, useState } from "react";
 import BrandMark from "../BrandMark";
 
 const conditions = [
-  { title: "Chronic Lower Back Pain", image: "/conditions/pain-management.jpg", position: "50% 65%" },
-  { title: "Persistent Neck Pain", image: "/conditions/post-operative-rehabilitation.jpg", position: "50% 40%" },
-  { title: "Chronic Shoulder Pain", image: "/shoulder-pain.png", position: "50% 35%" },
-  { title: "Knee Pain & Stiffness", image: "/conditions/orthopedic-rehabilitation.jpg", position: "50% 55%" },
-  { title: "Arthritis-Related Pain", image: "/conditions/neuro-rehabilitation.jpg", position: "50% 40%" },
-  { title: "Fibromyalgia & Widespread Pain", image: "/services/chiropractic-care.jpg", position: "50% 55%" },
+  { title: "Chronic Lower Back Pain", image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652406/pain-management.jpg", position: "50% 65%" },
+  { title: "Persistent Neck Pain", image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652407/post-operative-rehabilitation.jpg", position: "50% 40%" },
+  { title: "Chronic Shoulder Pain", image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652073/shoulder-pain.png", position: "50% 35%" },
+  { title: "Knee Pain & Stiffness", image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652405/orthopedic-rehabilitation.jpg", position: "50% 55%" },
+  { title: "Arthritis-Related Pain", image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652404/neuro-rehabilitation.jpg", position: "50% 40%" },
+  { title: "Fibromyalgia & Widespread Pain", image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652425/chiropractic-care.jpg", position: "50% 55%" },
 ];
 
 export default function ChronicPainConditions() {

@@ -37,12 +37,12 @@ const TeamSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const teamMembers = [
-    { name: "13+ Years of Experience", icon: "/membership.png" },
-    { name: "Experienced Physiotherapy Team", icon: "/why-icons-1.png" },
-    { name: "Detailed Physiotherapy Assessment", icon: "/why-icons-2.png" },
-    { name: "Personalised Exercise Programmes", icon: "/why-icons-3.png" },
-    { name: "Rehabilitation That Adapts to Your Progress", icon: "/why-icons-4.png" },
-    { name: "Home Visit Physiotherapy Options", icon: "/why-icons-5.png" },
+    { name: "13+ Years of Experience", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652061/membership.png" },
+    { name: "Experienced Physiotherapy Team", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652068/why-icons-1.png" },
+    { name: "Detailed Physiotherapy Assessment", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652068/why-icons-2.png" },
+    { name: "Personalised Exercise Programmes", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652069/why-icons-3.png" },
+    { name: "Rehabilitation That Adapts to Your Progress", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652069/why-icons-4.png" },
+    { name: "Home Visit Physiotherapy Options", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652069/why-icons-5.png" },
   ];
 
   // Carousel navigation

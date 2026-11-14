@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   description: "Pain-free living starts with chiropractic care.",
   // ENHANCE.png on a white background (the original PNG is transparent)
   icons: {
-    icon: [{ url: "/enhance-icon.png", type: "image/png" }],
-    shortcut: "/enhance-icon.png",
-    apple: "/enhance-apple-icon.png",
+    icon: [{ url: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652054/enhance-icon.png", type: "image/png" }],
+    shortcut: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652054/enhance-icon.png",
+    apple: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652053/enhance-apple-icon.png",
   },
 };
 

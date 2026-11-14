@@ -5,12 +5,12 @@ import { useEffect, useRef, useState } from "react";
 import BrandMark from "../BrandMark";
 
 const conditions = [
-  { title: "Improve Joint Mobility", image: "/conditions/orthopedic-rehabilitation.jpg", position: "50% 55%" },
-  { title: "Rebuild Muscle Strength", image: "/conditions/sports-physiotherapy.jpg", position: "50% 45%" },
-  { title: "Support Flexibility", image: "/about/arm-stretch.jpg", position: "50% 40%" },
-  { title: "Improve Walking & Balance", image: "/conditions/general-physiotherapy.jpg", position: "50% 40%" },
-  { title: "Regain Functional Independence", image: "/conditions/post-operative-rehabilitation.jpg", position: "50% 40%" },
-  { title: "Return Gradually to Daily Activities", image: "/about/posture-check.jpg", position: "50% 45%" },
+  { title: "Improve Joint Mobility", image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652405/orthopedic-rehabilitation.jpg", position: "50% 55%" },
+  { title: "Rebuild Muscle Strength", image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652407/sports-physiotherapy.jpg", position: "50% 45%" },
+  { title: "Support Flexibility", image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652386/arm-stretch.jpg", position: "50% 40%" },
+  { title: "Improve Walking & Balance", image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652403/general-physiotherapy.jpg", position: "50% 40%" },
+  { title: "Regain Functional Independence", image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652407/post-operative-rehabilitation.jpg", position: "50% 40%" },
+  { title: "Return Gradually to Daily Activities", image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652386/posture-check.jpg", position: "50% 45%" },
 ];
 
 export default function ChronicPainConditions() {

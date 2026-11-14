@@ -60,7 +60,7 @@ export default function HeroSection() {
         {/* Logo */}
         <a href="#" className="flex shrink-0 animate-hero-left items-center gap-[10px] xl:gap-[12px]" aria-label="Enhance Physiotherapy & Wellness – Home">
           <Image
-            src="/enhance-emblem.png"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652054/enhance-emblem.png"
             alt=""
             width={766}
             height={608}
@@ -68,7 +68,7 @@ export default function HeroSection() {
             className="h-[56px] w-auto lg:h-[66px] 2xl:h-[76px]"
           />
           <Image
-            src="/enhance-wordmark.png"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652055/enhance-wordmark.png"
             alt="Enhance – Be your best self"
             width={650}
             height={176}
@@ -179,7 +179,7 @@ export default function HeroSection() {
         <div className="relative mx-auto h-[calc(100svh-94px)] min-h-[600px] w-full max-w-[1826px] overflow-hidden rounded-[28px] md:h-[min(calc(100svh-106px),900px)] md:min-h-[540px] md:rounded-[34px] lg:h-[min(calc(100svh-116px),48vw)] 2xl:h-[min(calc(100svh-125px),48vw)] 2xl:rounded-[40px]">
           {/* Background image */}
           <Image
-            src="/banner-mble.png"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652055/banner-mble.png"
             alt="Physiotherapist guiding a patient through a rehabilitation exercise"
             fill
             preload
@@ -187,7 +187,7 @@ export default function HeroSection() {
             className="object-cover object-[50%_62%] md:hidden"
           />
           <Image
-            src="/banner-1.png"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652055/banner-1.png"
             alt="Physiotherapist guiding a patient through a rehabilitation exercise"
             fill
             preload

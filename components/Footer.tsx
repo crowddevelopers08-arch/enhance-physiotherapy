@@ -117,9 +117,9 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-[1632px]">
         {/* Logo */}
         <Link href="/" className="flex flex-col items-center" aria-label="Enhance Physiotherapy & Wellness – Home">
-          <Image src="/enhance-emblem.png" alt="" width={766} height={608} className="h-[76px] w-auto" />
+          <Image src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652054/enhance-emblem.png" alt="" width={766} height={608} className="h-[76px] w-auto" />
           <Image
-            src="/enhance-wordmark.png"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652055/enhance-wordmark.png"
             alt="Enhance – Be your best self"
             width={650}
             height={176}

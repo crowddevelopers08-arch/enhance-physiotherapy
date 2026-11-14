@@ -5,37 +5,37 @@ const conditions = [
   {
     title: "Joint Stiffness",
     text: "Your knee, hip or shoulder may feel stiff, making it difficult to bend, straighten or move comfortably.",
-    image: "/Joint-Stiffnes.jpg",
+    image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652065/Joint-Stiffnes.jpg",
     alt: "Physiotherapist easing a stiff knee and hip joint",
   },
   {
     title: "Reduced Range of Motion",
     text: "Everyday movements such as reaching, bending or changing positions may feel restricted after surgery.",
-    image: "/en-images-1.JPG",
+    image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652058/en-images-1.jpg",
     alt: "Physiotherapist guiding a patient's arm through a range-of-motion movement",
   },
   {
     title: "Muscle Weakness",
     text: "Reduced activity during recovery can affect muscle strength, making standing, walking or lifting more challenging.",
-    image: "/en-images-3.JPG",
+    image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652058/en-images-3.jpg",
     alt: "Physiotherapist stretching a patient's leg during strengthening work",
   },
   {
     title: "Difficulty Walking",
     text: "You may need support while walking or feel unsure about putting weight on the operated leg.",
-    image: "/Difficulty-Walking.jpg",
+    image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652054/Difficulty-Walking.jpg",
     alt: "Physiotherapist guiding a patient's leg movement",
   },
   {
     title: "Balance & Stability Concerns",
     text: "Changes in strength and mobility can affect your confidence while standing, turning or moving around.",
-    image: "/Balance.jpg",
+    image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652053/Balance.jpg",
     alt: "Therapist assessing a patient's posture and balance",
   },
   {
     title: "Difficulty with Daily Activities",
     text: "Getting out of bed, climbing stairs, dressing or completing household tasks may require additional effort or assistance.",
-    image: "/Difficulty-with-Daily-Activities.jpg",
+    image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652056/Difficulty-with-Daily-Activities.jpg",
     alt: "Therapist supporting a patient's shoulder after surgery",
   },
 ];

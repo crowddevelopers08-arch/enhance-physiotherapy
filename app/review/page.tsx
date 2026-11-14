@@ -116,7 +116,7 @@ export default function ReviewPage() {
         {/* Header */}
         <div className="flex h-20 w-64 items-center justify-center gap-2.5 pt-2">
           <Image
-            src="/enhance-emblem.png"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652054/enhance-emblem.png"
             alt=""
             width={766}
             height={608}
@@ -124,7 +124,7 @@ export default function ReviewPage() {
             preload
           />
           <Image
-            src="/enhance-wordmark.png"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652055/enhance-wordmark.png"
             alt="Enhance Physiotherapy & Wellness — Be your best self"
             width={650}
             height={176}

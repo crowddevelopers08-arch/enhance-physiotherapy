@@ -7,9 +7,9 @@ export default function SimpleHeader() {
     <header className="w-full border-b border-[#e3e9d8] bg-white font-sans">
       <div className="mx-auto flex h-[82px] w-full max-w-[1500px] items-center justify-between gap-6 px-5 md:px-8 lg:h-[92px]">
         <Link href="/post-surgery" className="flex shrink-0 items-center gap-[10px]" aria-label="Enhance Physiotherapy & Wellness – Home">
-          <Image src="/enhance-emblem.png" alt="" width={766} height={608} priority className="h-[52px] w-auto lg:h-[60px]" />
+          <Image src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652054/enhance-emblem.png" alt="" width={766} height={608} priority className="h-[52px] w-auto lg:h-[60px]" />
           <Image
-            src="/enhance-wordmark.png"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652055/enhance-wordmark.png"
             alt="Enhance – Be your best self"
             width={650}
             height={176}

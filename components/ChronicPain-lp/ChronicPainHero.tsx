@@ -67,7 +67,7 @@ export default function ChronicPainHero() {
     >
       {/* ================= BACKGROUND ================= */}
       <Image
-        src="/pexels-shkrabaanthony.webp"
+        src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652064/pexels-shkrabaanthony.webp"
         alt="Physiotherapist helping a patient recover from chronic pain"
         fill
         priority
@@ -75,7 +75,7 @@ export default function ChronicPainHero() {
         className="-z-20 object-cover object-[50%_60%] md:hidden"
       />
       <Image
-        src="/banner-2.png"
+        src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652051/banner-2.png"
         alt="Physiotherapist helping a patient recover from chronic pain"
         fill
         priority
@@ -91,7 +91,7 @@ export default function ChronicPainHero() {
       <header className="relative z-30 mx-auto flex h-[88px] w-full max-w-[1468px] shrink-0 items-center justify-between gap-6 px-5 md:px-8 xl:px-0">
         <a href="#" className="flex shrink-0 animate-hero-left items-center gap-[10px]" aria-label="Enhance Physiotherapy & Wellness – Home">
           <Image
-            src="/enhance-emblem.png"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652054/enhance-emblem.png"
             alt=""
             width={766}
             height={608}
@@ -99,7 +99,7 @@ export default function ChronicPainHero() {
             className="h-[52px] w-auto lg:h-[58px]"
           />
           <Image
-            src="/enhance-wordmark.png"
+            src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652055/enhance-wordmark.png"
             alt="Enhance – Be your best self"
             width={650}
             height={176}

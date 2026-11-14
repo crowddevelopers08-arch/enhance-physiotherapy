@@ -141,7 +141,7 @@ export default function BookingModal() {
             </svg>
           </button>
 
-          <Image src="/enhance-emblem.png" alt="" width={766} height={608} className="h-[46px] w-auto" />
+          <Image src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652054/enhance-emblem.png" alt="" width={766} height={608} className="h-[46px] w-auto" />
           <span className="mt-[16px] block text-[12px] font-semibold uppercase tracking-[0.22em] text-[#2b3320]">
             Book a Home Visit
           </span>

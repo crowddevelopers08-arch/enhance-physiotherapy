@@ -4,32 +4,32 @@ import BrandMark from "../BrandMark";
 const conditions = [
   {
     title: "Improving Joint Mobility",
-    image: "/en-images-1.JPG",
+    image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652058/en-images-1.jpg",
     alt: "Physiotherapist guiding a patient's arm through a mobility movement",
   },
   {
     title: "Building Muscle Strength",
-    image: "/en-images-3.JPG",
+    image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652058/en-images-3.jpg",
     alt: "Physiotherapist stretching a patient's leg during strengthening work",
   },
   {
     title: "Improving Movement Confidence",
-    image: "/improving.webp",
+    image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652064/improving.webp",
     alt: "Smiling patient with her physiotherapist",
   },
   {
     title: "Supporting Everyday Function",
-    image: "/conditions/general-physiotherapy.jpg",
+    image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652403/general-physiotherapy.jpg",
     alt: "Therapist assessing a patient's posture and shoulder movement",
   },
   {
     title: "Learning Pain Management Strategies",
-    image: "/pain-managament.svg",
+    image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652070/pain-managament.svg",
     alt: "Therapist applying kinesiology tape to a patient's lower back",
   },
   {
     title: "Encouraging Long-Term Self-Management",
-    image: "/conditions/home-physiotherapy.jpg",
+    image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652404/home-physiotherapy.jpg",
     alt: "Physiotherapist guiding a patient through a leg exercise",
   },
 ];

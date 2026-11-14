@@ -38,7 +38,7 @@ const stages: Stage[] = [
   {
     label: "Knee",
     title: "Knee Replacement Rehabilitation",
-    icon: "/ps-icon-1.png",
+    icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652066/ps-icon-1.png",
     color: "#c3d957",
     ink: "#2b3320",
     iconInk: "#ffffff",
@@ -51,7 +51,7 @@ const stages: Stage[] = [
   {
     label: "Hip",
     title: "Hip Replacement Rehabilitation",
-    icon: "/ps-icon-2.png",
+    icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652066/ps-icon-2.png",
     color: "#9fba5c",
     ink: "#2b3320",
     iconInk: "#ffffff",
@@ -64,7 +64,7 @@ const stages: Stage[] = [
   {
     label: "ACL",
     title: "ACL Reconstruction Rehabilitation",
-    icon: "/ps-icon-3.png",
+    icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652066/ps-icon-3.png",
     color: "#7c9a46",
     ink: "#ffffff",
     side: "top",
@@ -76,7 +76,7 @@ const stages: Stage[] = [
   {
     label: "Shoulder",
     title: "Shoulder Surgery Rehabilitation",
-    icon: "/ps-icon-4.png",
+    icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652067/ps-icon-4.png",
     color: "#5f7c39",
     ink: "#ffffff",
     side: "bottom",
@@ -88,7 +88,7 @@ const stages: Stage[] = [
   {
     label: "Fracture",
     title: "Fracture Surgery Rehabilitation",
-    icon: "/ps-icon-5.png",
+    icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652067/ps-icon-5.png",
     color: "#46602d",
     ink: "#ffffff",
     side: "top",
@@ -100,7 +100,7 @@ const stages: Stage[] = [
   {
     label: "Spine",
     title: "Spine Surgery Rehabilitation",
-    icon: "/ps-icon-6.png",
+    icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652067/ps-icon-6.png",
     color: "#2b3320",
     ink: "#ffffff",
     side: "bottom",

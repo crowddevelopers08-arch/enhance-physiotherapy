@@ -34,7 +34,7 @@ const steps: Step[] = [
   {
     title: "Comprehensive Physiotherapy Assessment",
     text: "Your physiotherapist reviews your pain history, symptoms, mobility and daily activities to understand your condition and identify possible contributing factors.",
-    icon: "/phy-icons-1.png",
+    icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652065/phy-icons-1.png",
     from: "#d2e46b",
     to: "#b5cc47",
     ribbon: "#8fa233",
@@ -44,7 +44,7 @@ const steps: Step[] = [
   {
     title: "Personalised Management Plan",
     text: "A tailored plan is developed to address your needs, focusing on improving mobility, building strength and managing everyday discomfort.",
-    icon: "/phy-icons-2.png",
+    icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652066/phy-icons-2.png",
     from: "#9fba5c",
     to: "#84a246",
     ribbon: "#61792f",
@@ -54,7 +54,7 @@ const steps: Step[] = [
   {
     title: "Guided Physiotherapy Sessions",
     text: "Sessions may include supervised exercises, movement training, manual therapy and pain management guidance based on your condition and tolerance.",
-    icon: "/phy-icons-3.png",
+    icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652066/phy-icons-3.png",
     from: "#5f7c39",
     to: "#46602d",
     ribbon: "#32461f",
@@ -64,7 +64,7 @@ const steps: Step[] = [
   {
     title: "Progress Monitoring & Self-Management",
     text: "Your progress is regularly reviewed, with adjustments to your rehabilitation plan and guidance on suitable exercises for ongoing self-management.",
-    icon: "/phy-icons-4.png",
+    icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652066/phy-icons-4.png",
     from: "#3a4a28",
     to: "#2b3320",
     ribbon: "#1a2112",

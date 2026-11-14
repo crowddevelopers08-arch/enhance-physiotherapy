@@ -37,12 +37,12 @@ const TeamSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const teamMembers = [
-    { name: "13+ Years of Experience", icon: "/membership.png" },
-    { name: "Experienced Physiotherapy Support", icon: "/en-icons-2.png" },
-    { name: "Assessment Before Treatment", icon: "/en-icons-3.png" },
-    { name: "Personalised Management Plans", icon: "/en-icons-4.png" },
-    { name: "Progress-Focused Rehabilitation", icon: "/en-icons-6.png" },
-    { name: "Guided Exercise & Movement Training", icon: "/en-icons-5.png" },
+    { name: "13+ Years of Experience", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652061/membership.png" },
+    { name: "Experienced Physiotherapy Support", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652055/en-icons-2.png" },
+    { name: "Assessment Before Treatment", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652056/en-icons-3.png" },
+    { name: "Personalised Management Plans", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652056/en-icons-4.png" },
+    { name: "Progress-Focused Rehabilitation", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652056/en-icons-6.png" },
+    { name: "Guided Exercise & Movement Training", icon: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652056/en-icons-5.png" },
   ];
 
   // Carousel navigation
