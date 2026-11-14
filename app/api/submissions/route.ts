@@ -84,6 +84,7 @@ function getSheetWebhookUrl() {
 function getSheetTabName(formName: string) {
   if (formName === 'Review Leads') return 'Review Leads';
   if (formName === 'chronic-pain-form') return 'chronic-pain-leads';
+  if (formName === 'post-surgery-form') return 'post-surgery-leads';
   return 'enhance-physio-leads';
 }
 

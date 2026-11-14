@@ -32,8 +32,9 @@ const inputBase =
  */
 export default function BookingModal() {
   const router = useRouter();
-  // The chronic-pain page has its own form popup (ChronicPainFormModal), so this one stays off there
-  const disabled = usePathname()?.startsWith("/chronic-pain") ?? false;
+  // The chronic-pain and post-surgery pages have their own form popups, so this one stays off there
+  const pathname = usePathname() ?? "";
+  const disabled = pathname.startsWith("/chronic-pain") || pathname.startsWith("/post-surgery");
   const [open, setOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
