@@ -88,6 +88,7 @@ export default function PostSurgeryFormModal() {
           name: String(data.get("name") || ""),
           phone: String(data.get("phone") || ""),
           concern: String(data.get("concern") || ""),
+          appointmentTime: String(data.get("appointmentTime") || ""),
           pageUrl: window.location.href,
         }),
       });
@@ -263,6 +264,28 @@ export default function PostSurgeryFormModal() {
                 <path d="M6 9l6 6 6-6" />
               </svg>
             </span>
+          </label>
+
+          <label className="flex flex-col gap-[7px]">
+            <span className="flex items-center justify-between">
+              <span className="text-[14px] font-semibold text-[#2b3320]">Preferred Appointment Date &amp; Time</span>
+              <span className="rounded-full bg-[#e8efda] px-[9px] py-[3px] text-[11px] font-semibold text-[#5f7638]">Your preferred slot</span>
+            </span>
+            <span className="relative overflow-hidden rounded-[14px] border border-[#c9d6b7] bg-[#f7faef] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] transition-colors focus-within:border-[#6b8440] focus-within:ring-4 focus-within:ring-[#90a863]/20">
+              <span aria-hidden="true" className="absolute bottom-0 left-0 top-0 flex w-[48px] items-center justify-center border-r border-[#d9e3ca] bg-[#edf3df] text-[#5f7638]">
+                <svg viewBox="0 0 24 24" className="h-[20px] w-[20px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3.5" y="5" width="17" height="15.5" rx="2" />
+                  <path d="M7.5 3.5v3M16.5 3.5v3M3.5 10h17M12 13.5v3.5l2.5 1.5" />
+                </svg>
+              </span>
+              <input
+                name="appointmentTime"
+                type="datetime-local"
+                required
+                className="h-[54px] w-full cursor-pointer bg-transparent pl-[64px] pr-[16px] text-[15px] font-medium text-[#2b3320] outline-none [color-scheme:light] [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-60"
+              />
+            </span>
+            <span className="text-[12px] leading-[1.4] text-[#77816a]">Select the date and time that is most convenient for you.</span>
           </label>
 
           {error && (

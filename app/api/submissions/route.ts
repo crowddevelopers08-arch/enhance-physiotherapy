@@ -11,6 +11,7 @@ const HEADERS = [
   'Name',
   'Phone',
   'Concern',
+  'Preferred Appointment Date & Time',
   'URL',
   'TeleCRM',
 ];
@@ -23,6 +24,7 @@ type SubmissionBody = {
   name: string;
   phone: string;
   concern: string;
+  appointmentTime: string;
   pageUrl: string;
 };
 
@@ -44,6 +46,7 @@ function normalizeSubmission(body: Record<string, unknown>): SubmissionBody {
     name: toText(body.name),
     phone: toText(body.phone),
     concern: toText(body.concern),
+    appointmentTime: toText(body.appointmentTime),
     pageUrl: toText(body.pageUrl),
   };
 }
@@ -62,6 +65,24 @@ function ensureCsvFile() {
   if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
   if (!fs.existsSync(FILE_PATH)) {
     fs.writeFileSync(FILE_PATH, `${rowToCsv(HEADERS)}\n`, 'utf8');
+    return;
+  }
+
+  let [header = ''] = fs.readFileSync(FILE_PATH, 'utf8').split(/\r?\n/, 1);
+  const legacyAppointmentHeader = 'Preferred Appointment Time';
+  const appointmentHeader = 'Preferred Appointment Date & Time';
+  if (header.includes(legacyAppointmentHeader)) {
+    const contents = fs.readFileSync(FILE_PATH, 'utf8');
+    header = header.replace(legacyAppointmentHeader, appointmentHeader);
+    fs.writeFileSync(FILE_PATH, `${header}${contents.slice(contents.indexOf('\n'))}`, 'utf8');
+  }
+  if (header !== rowToCsv(HEADERS)) {
+    const existingHeaders = header.split(',');
+    const missingHeaders = HEADERS.filter((name) => !existingHeaders.includes(name));
+    if (missingHeaders.length > 0) {
+      const contents = fs.readFileSync(FILE_PATH, 'utf8');
+      fs.writeFileSync(FILE_PATH, `${header},${missingHeaders.map(csvEscape).join(',')}${contents.slice(header.length)}`, 'utf8');
+    }
   }
 }
 
@@ -99,6 +120,7 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
     body.name,
     body.phone,
     body.concern,
+    body.appointmentTime,
     body.pageUrl,
     telecrmStatus,
   ];
@@ -115,6 +137,7 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
       name: body.name,
       phone: body.phone,
       concern: body.concern,
+      appointmentTime: body.appointmentTime,
       pageUrl: body.pageUrl,
       url: body.pageUrl,
       telecrm: telecrmStatus,
@@ -174,6 +197,7 @@ async function pushToTeleCRM(body: SubmissionBody): Promise<TelecrmResponse | nu
     `Name: ${body.name || 'Not specified'}`,
     `Phone: ${body.phone || 'Not specified'}`,
     `Concern: ${body.concern || 'Not specified'}`,
+    `Preferred Appointment Date & Time: ${body.appointmentTime || 'Not specified'}`,
     `URL: ${body.pageUrl || 'Not specified'}`,
   ].join(' | ');
 
@@ -186,6 +210,7 @@ async function pushToTeleCRM(body: SubmissionBody): Promise<TelecrmResponse | nu
       { type: 'SYSTEM_NOTE', text: `Name: ${body.name || 'Not specified'}` },
       { type: 'SYSTEM_NOTE', text: `Phone: ${body.phone || 'Not specified'}` },
       { type: 'SYSTEM_NOTE', text: `Condition: ${body.concern || 'Not specified'}` },
+      { type: 'SYSTEM_NOTE', text: `Preferred Appointment Date & Time: ${body.appointmentTime || 'Not specified'}` },
       { type: 'SYSTEM_NOTE', text: `URL: ${body.pageUrl || 'Not specified'}` },
     ],
   };
@@ -265,6 +290,7 @@ async function syncLead(body: SubmissionBody, timestamp: string) {
     body.name,
     body.phone,
     body.concern,
+    body.appointmentTime,
     body.pageUrl,
     telecrmStatus,
   ];

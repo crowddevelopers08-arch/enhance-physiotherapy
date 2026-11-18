@@ -63,7 +63,7 @@ const options: Option[] = [
     title: "Clinic-Based Physiotherapy",
     text: "Receive supervised physiotherapy sessions at our clinic, with guided exercises, movement training and personalised rehabilitation support tailored to your condition.",
     benefits: ["Supervised physiotherapy sessions", "Access to suitable clinical facilities", "Structured rehabilitation guidance"],
-    image: "/hero.webp",
+    image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1795002409/heros.webp",
     alt: "Physiotherapist assessing a patient's posture in the clinic",
     position: "50% 35%",
     icon: <ClinicIcon />,
