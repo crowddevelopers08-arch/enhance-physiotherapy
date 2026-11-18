@@ -67,7 +67,7 @@ export default function ChronicPainHero() {
     >
       {/* ================= BACKGROUND ================= */}
       <Image
-        src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652064/pexels-shkrabaanthony.webp"
+        src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794980575/chronic-pain-management-mble.png"
         alt="Physiotherapist helping a patient recover from chronic pain"
         fill
         priority
@@ -75,7 +75,7 @@ export default function ChronicPainHero() {
         className="-z-20 object-cover object-[50%_60%] md:hidden"
       />
       <Image
-        src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652051/banner-2.png"
+        src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794980573/chronic-pain-management.webp"
         alt="Physiotherapist helping a patient recover from chronic pain"
         fill
         priority
