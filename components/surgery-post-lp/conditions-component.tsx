@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import BrandMark from "../BrandMark";
 
 const conditions = [
   { title: "Improve Joint Mobility", image: "https://res.cloudinary.com/b5lvyi64/image/upload/v1794652405/orthopedic-rehabilitation.jpg", position: "50% 55%" },
@@ -100,13 +99,6 @@ export default function ChronicPainConditions() {
               />
               {/* brand green fade so the title stays readable */}
               <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#1f2616]/90 via-[#1f2616]/25 to-transparent" />
-
-              <span className="absolute left-[16px] top-[16px] flex h-[38px] min-w-[38px] items-center justify-center rounded-full bg-white/90 px-[10px] text-[12px] font-semibold tracking-[0.12em] text-[#2b3320]">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="absolute right-[16px] top-[16px] flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#2b3320]/80 backdrop-blur-sm transition-colors duration-300 group-hover:bg-[#6b8440]">
-                <BrandMark className="h-[18px] w-[20px]" />
-              </span>
 
               <div className="absolute inset-x-0 bottom-0 p-[18px] sm:p-[20px]">
                 <h3 className={`text-[19px] font-semibold leading-[1.25] text-white sm:text-[20px] xl:text-[22px]`}>
