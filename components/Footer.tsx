@@ -73,7 +73,7 @@ const ClockIcon = ({ className }: IconProps) => (
 
 const contactItems = [
   { title: "Clinic Name", label: "ENHANCE PHYSIOTHERAPY & WELLNESS", Icon: PhoneIcon },
-  { title: "Email", label: "contact@enhance-physio.com", href: "mailto:contact@enhance-physio.com", Icon: MailIcon },
+  { title: "Email", label: "info@enhancephysio.in", href: "mailto:info@enhancephysio.in", Icon: MailIcon },
   {
     title: "Clinic Address",
     label: "UNIT NO M-01 ON THE, MEZZANINE FLOOR NO 116 RAIYAAN ARCADE,HBR,1ST STAGE,BANAGLORE,KARNATAKA, Pin: 560043",
