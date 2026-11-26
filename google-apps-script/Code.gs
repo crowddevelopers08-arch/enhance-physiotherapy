@@ -15,7 +15,12 @@ const SHEET_NAME = 'enhance-physio-leads';          // main landing page (defaul
 const REVIEW_SHEET_NAME = 'Review Leads';           // review page
 const CHRONIC_PAIN_SHEET_NAME = 'chronic-pain-leads'; // chronic-pain landing page
 const POST_SURGERY_SHEET_NAME = 'post-surgery-leads'; // post-surgery landing page
-const HEADERS = ['Timestamp', 'Form Name', 'Source', 'Name', 'Phone', 'Concern', 'Preferred Appointment Date & Time', 'URL', 'TeleCRM'];
+const APPOINTMENT_HEADER = 'Preferred Appointment Date & Time';
+const MODE_HEADER = 'Preferred Mode of Consultation';
+// Landing pages and review page: their forms ask for an appointment date & time
+const HEADERS = ['Timestamp', 'Form Name', 'Source', 'Name', 'Phone', 'Concern', APPOINTMENT_HEADER, 'URL', 'TeleCRM'];
+// Main page popup: asks for the consultation mode, has no date & time field
+const MAIN_HEADERS = ['Timestamp', 'Form Name', 'Source', 'Name', 'Phone', 'Concern', MODE_HEADER, 'URL', 'TeleCRM'];
 
 // Which tab each sheetName / formName writes to. Anything unknown goes to the default tab.
 function resolveSheetName_(name) {
@@ -33,37 +38,65 @@ function resolveSheetName_(name) {
   }
 }
 
+function readHeaders_(sheet) {
+  return sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+}
+
+// Moves a whole column (header and lead values) so it sits directly after "Concern"
+function moveAfterConcern_(sheet, header) {
+  const headers = readHeaders_(sheet);
+  const from = headers.indexOf(header);
+  const concern = headers.indexOf('Concern');
+  if (from !== -1 && concern !== -1 && from !== concern + 1) {
+    sheet.moveColumns(sheet.getRange(1, from + 1, sheet.getMaxRows(), 1), concern + 2);
+  }
+}
+
+function isColumnEmpty_(sheet, column) {
+  if (sheet.getLastRow() < 2) return true;
+  return sheet.getRange(2, column, sheet.getLastRow() - 1, 1).getValues().every(function (r) { return r[0] === ''; });
+}
+
+// The main tab has no date & time field: that column becomes "Preferred Mode of Consultation"
+function tidyMainTab_(sheet) {
+  const headers = readHeaders_(sheet);
+  const appointment = headers.indexOf(APPOINTMENT_HEADER);
+  if (appointment === -1) return;
+  if (headers.indexOf(MODE_HEADER) === -1) {
+    sheet.getRange(1, appointment + 1).setValue(MODE_HEADER);
+  } else if (isColumnEmpty_(sheet, appointment + 1)) {
+    sheet.deleteColumn(appointment + 1); // only ever removes a column with no data in it
+  }
+}
+
 function getSheet_(sheetName) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const targetName = resolveSheetName_(sheetName);
   let sheet = ss.getSheetByName(targetName);
   if (!sheet) sheet = ss.insertSheet(targetName);
 
+  const isMain = targetName === SHEET_NAME;
+  const wanted = isMain ? MAIN_HEADERS : HEADERS;
+
   if (sheet.getLastRow() === 0) {
-    sheet.appendRow(HEADERS);
-    sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold').setBackground('#eef2e6');
+    sheet.appendRow(wanted);
+    sheet.getRange(1, 1, 1, wanted.length).setFontWeight('bold').setBackground('#eef2e6');
     sheet.setFrozenRows(1);
-  } else {
-    const existingHeaders = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
-    const legacyAppointmentHeaderIndex = existingHeaders.indexOf('Preferred Appointment Time');
-    if (legacyAppointmentHeaderIndex !== -1) {
-      sheet.getRange(1, legacyAppointmentHeaderIndex + 1).setValue('Preferred Appointment Date & Time');
-      existingHeaders[legacyAppointmentHeaderIndex] = 'Preferred Appointment Date & Time';
-    }
-    const appointmentHeaderIndex = existingHeaders.indexOf('Preferred Appointment Date & Time');
-    const concernHeaderIndex = existingHeaders.indexOf('Concern');
-    if (appointmentHeaderIndex !== -1 && concernHeaderIndex !== -1 && appointmentHeaderIndex !== concernHeaderIndex + 1) {
-      // Move the complete existing column (header and lead values) directly after Concern.
-      sheet.moveColumns(sheet.getRange(1, appointmentHeaderIndex + 1, sheet.getMaxRows(), 1), concernHeaderIndex + 2);
-      const movedHeader = existingHeaders.splice(appointmentHeaderIndex, 1)[0];
-      existingHeaders.splice(concernHeaderIndex + 1, 0, movedHeader);
-    }
-    HEADERS.forEach(function(header) {
-      if (existingHeaders.indexOf(header) === -1) {
-        sheet.getRange(1, sheet.getLastColumn() + 1).setValue(header).setFontWeight('bold').setBackground('#eef2e6');
-      }
-    });
+    return sheet;
   }
+
+  const legacy = readHeaders_(sheet).indexOf('Preferred Appointment Time');
+  if (legacy !== -1) sheet.getRange(1, legacy + 1).setValue(APPOINTMENT_HEADER);
+
+  if (isMain) tidyMainTab_(sheet);
+
+  const existing = readHeaders_(sheet);
+  wanted.forEach(function (header) {
+    if (existing.indexOf(header) === -1) {
+      sheet.getRange(1, sheet.getLastColumn() + 1).setValue(header).setFontWeight('bold').setBackground('#eef2e6');
+    }
+  });
+  moveAfterConcern_(sheet, isMain ? MODE_HEADER : APPOINTMENT_HEADER);
   return sheet;
 }
 
@@ -78,18 +111,25 @@ function doPost(e) {
     const body = JSON.parse((e && e.postData && e.postData.contents) || '{}');
     const sheet = getSheet_(body.sheetName || body.tabName || body.formName);
 
-    const row = [
-      body.timestamp || Utilities.formatDate(new Date(), 'Asia/Kolkata', 'dd/MM/yyyy, HH:mm:ss'),
-      body.formName || 'enhance-physio-leads',
-      body.source || 'Enhance Physiotherapy Clinic',
-      body.name || '',
+    const values = {
+      'Timestamp': body.timestamp || Utilities.formatDate(new Date(), 'Asia/Kolkata', 'dd/MM/yyyy, HH:mm:ss'),
+      'Form Name': body.formName || 'enhance-physio-leads',
+      'Source': body.source || 'Enhance Physiotherapy Clinic',
+      'Name': body.name || '',
       // Leading apostrophe keeps "+91…" as text instead of a formula/number
-      body.phone ? "'" + body.phone : '',
-      body.concern || '',
-      body.appointmentTime || '',
-      body.pageUrl || body.url || '',
-      body.telecrm || '',
-    ];
+      'Phone': body.phone ? "'" + body.phone : '',
+      'Concern': body.concern || '',
+      'Preferred Appointment Date & Time': body.appointmentTime || '',
+      'Preferred Mode of Consultation': body.consultationMode || '',
+      'URL': body.pageUrl || body.url || '',
+      'TeleCRM': body.telecrm || '',
+    };
+
+    // Write each value under its own header, whatever order the tab's columns are in
+    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    const row = headers.map(function (header) {
+      return values.hasOwnProperty(header) ? values[header] : '';
+    });
 
     sheet.appendRow(row);
     return json_({ success: true, tab: sheet.getName(), row: sheet.getLastRow() });

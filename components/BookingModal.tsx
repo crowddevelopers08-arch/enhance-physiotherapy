@@ -103,10 +103,6 @@ export default function BookingModal() {
     setSubmitting(true);
     setError("");
 
-    // The consultation mode travels with the concern, so it reaches the Google Sheet and TeleCRM
-    const concern = String(data.get("concern") || "");
-    const mode = String(data.get("consultationMode") || "");
-
     try {
       const res = await fetch("/api/submissions", {
         method: "POST",
@@ -116,7 +112,8 @@ export default function BookingModal() {
           source: SOURCE_NAME,
           name: String(data.get("name") || ""),
           phone: String(data.get("phone") || ""),
-          concern: mode ? `${concern} | Mode: ${mode}` : concern,
+          concern: String(data.get("concern") || ""),
+          consultationMode: String(data.get("consultationMode") || ""),
           pageUrl: window.location.href,
         }),
       });

@@ -12,6 +12,7 @@ const HEADERS = [
   'Phone',
   'Concern',
   'Preferred Appointment Date & Time',
+  'Preferred Mode of Consultation',
   'URL',
   'TeleCRM',
 ];
@@ -25,6 +26,7 @@ type SubmissionBody = {
   phone: string;
   concern: string;
   appointmentTime: string;
+  consultationMode: string;
   pageUrl: string;
 };
 
@@ -47,6 +49,7 @@ function normalizeSubmission(body: Record<string, unknown>): SubmissionBody {
     phone: toText(body.phone),
     concern: toText(body.concern),
     appointmentTime: toText(body.appointmentTime),
+    consultationMode: toText(body.consultationMode),
     pageUrl: toText(body.pageUrl),
   };
 }
@@ -86,8 +89,27 @@ function ensureCsvFile() {
   }
 }
 
-function appendLocalRow(row: string[]) {
+// One lead as { column name: value }, so every value lands under its own column
+function toRecord(body: SubmissionBody, timestamp: string, telecrmStatus: string): Record<string, string> {
+  return {
+    Timestamp: timestamp,
+    'Form Name': body.formName,
+    Source: body.source,
+    Name: body.name,
+    Phone: body.phone,
+    Concern: body.concern,
+    'Preferred Appointment Date & Time': body.appointmentTime,
+    'Preferred Mode of Consultation': body.consultationMode,
+    URL: body.pageUrl,
+    TeleCRM: telecrmStatus,
+  };
+}
+
+function appendLocalRow(record: Record<string, string>) {
   ensureCsvFile();
+  // Follow the column order of the existing file, which may differ from HEADERS
+  const [header = ''] = fs.readFileSync(FILE_PATH, 'utf8').split(/\r?\n/, 1);
+  const row = header.split(',').map((name) => record[name] ?? '');
   fs.appendFileSync(FILE_PATH, `${rowToCsv(row)}\n`, 'utf8');
 }
 
@@ -113,17 +135,8 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
   const url = getSheetWebhookUrl();
   if (!url) return null;
 
-  const row = [
-    timestamp,
-    body.formName,
-    body.source,
-    body.name,
-    body.phone,
-    body.concern,
-    body.appointmentTime,
-    body.pageUrl,
-    telecrmStatus,
-  ];
+  const record = toRecord(body, timestamp, telecrmStatus);
+  const row = HEADERS.map((name) => record[name]);
 
   const res = await fetch(url, {
     method: 'POST',
@@ -138,6 +151,7 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
       phone: body.phone,
       concern: body.concern,
       appointmentTime: body.appointmentTime,
+      consultationMode: body.consultationMode,
       pageUrl: body.pageUrl,
       url: body.pageUrl,
       telecrm: telecrmStatus,
@@ -198,6 +212,8 @@ async function pushToTeleCRM(body: SubmissionBody): Promise<TelecrmResponse | nu
     `Phone: ${body.phone || 'Not specified'}`,
     `Concern: ${body.concern || 'Not specified'}`,
     `Preferred Appointment Date & Time: ${body.appointmentTime || 'Not specified'}`,
+    // only forms that ask for a consultation mode add this line
+    ...(body.consultationMode ? [`Preferred Mode of Consultation: ${body.consultationMode}`] : []),
     `URL: ${body.pageUrl || 'Not specified'}`,
   ].join(' | ');
 
@@ -211,6 +227,9 @@ async function pushToTeleCRM(body: SubmissionBody): Promise<TelecrmResponse | nu
       { type: 'SYSTEM_NOTE', text: `Phone: ${body.phone || 'Not specified'}` },
       { type: 'SYSTEM_NOTE', text: `Condition: ${body.concern || 'Not specified'}` },
       { type: 'SYSTEM_NOTE', text: `Preferred Appointment Date & Time: ${body.appointmentTime || 'Not specified'}` },
+      ...(body.consultationMode
+        ? [{ type: 'SYSTEM_NOTE', text: `Preferred Mode of Consultation: ${body.consultationMode}` }]
+        : []),
       { type: 'SYSTEM_NOTE', text: `URL: ${body.pageUrl || 'Not specified'}` },
     ],
   };
@@ -283,20 +302,8 @@ function getTelecrmStatus(result: TelecrmResponse | null) {
 async function syncLead(body: SubmissionBody, timestamp: string) {
   const telecrmResult = await pushToTeleCRM(body);
   const telecrmStatus = getTelecrmStatus(telecrmResult);
-  const row = [
-    timestamp,
-    body.formName,
-    body.source,
-    body.name,
-    body.phone,
-    body.concern,
-    body.appointmentTime,
-    body.pageUrl,
-    telecrmStatus,
-  ];
-
   try {
-    appendLocalRow(row);
+    appendLocalRow(toRecord(body, timestamp, telecrmStatus));
   } catch (csvErr) {
     console.warn('Local CSV save skipped:', (csvErr as Error).message);
   }

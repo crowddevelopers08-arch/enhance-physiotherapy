@@ -103,15 +103,18 @@ export default function FaqSection() {
                 />
               </div>
 
-              {/* Badge */}
-              <div className="absolute bottom-[28px] left-1/2 flex -translate-x-1/2 items-center gap-[10px] whitespace-nowrap rounded-full bg-white py-[10px] pl-[10px] pr-[20px] shadow-[0_10px_30px_rgba(38,48,28,0.15)]">
+              {/* Button on the photo */}
+              <a
+                href="#appointment"
+                className="absolute bottom-[28px] left-1/2 flex -translate-x-1/2 items-center gap-[10px] whitespace-nowrap rounded-full bg-white py-[10px] pl-[10px] pr-[20px] shadow-[0_10px_30px_rgba(38,48,28,0.15)] transition-colors duration-200 hover:bg-[#eaf6b9]"
+              >
                 <span className="flex h-[36px] w-[36px] items-center justify-center rounded-full bg-[#6b8440] text-white">
-                  <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" />
+                  <svg viewBox="0 0 16 16" className="h-[14px] w-[14px]" aria-hidden="true">
+                    <path d="M8 2.2v11.6M2.2 8h11.6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
                   </svg>
                 </span>
-                <span className="text-[14px] font-medium text-[#1c1f1a] sm:text-[15px]">Care at Your Doorstep</span>
-              </div>
+                <span className="text-[14px] font-medium text-[#1c1f1a] sm:text-[15px]">Consult Our Physiotherapist</span>
+              </a>
             </div>
 
             <div className="hidden rounded-[22px] bg-white p-[20px] lg:block">
