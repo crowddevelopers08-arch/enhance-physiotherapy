@@ -177,7 +177,7 @@ export default function HeroSection() {
       {/* ================= HERO CARD ================= */}
       <div className="px-3 md:px-[2%] ">
         <div className="relative mx-auto h-[calc(100svh-94px)] min-h-[600px] w-full max-w-[1826px] overflow-hidden rounded-[28px] md:h-[min(calc(100svh-106px),900px)] md:min-h-[540px] md:rounded-[34px] lg:h-[min(calc(100svh-116px),48vw)] 2xl:h-[min(calc(100svh-125px),48vw)] 2xl:rounded-[40px]">
-          {/* Background image */}
+          {/* Backgrounds image */}
           <Image
             src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652055/banner-mble.png"
             alt="Physiotherapist guiding a patient through a rehabilitation exercise"
