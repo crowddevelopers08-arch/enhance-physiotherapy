@@ -200,23 +200,21 @@ export default function HeroSection() {
           {/* Content */}
           <div className="relative z-10 flex h-full flex-col items-center justify-center px-5 pb-[148px] pt-[24px] text-center lg:pb-[118px] 2xl:pb-[112px] lg:mb-[20px]">
             <h1 className="max-w-[13.6em] animate-hero-left [animation-delay:350ms] text-[clamp(26px,6.4vw,36px)] md:text-[clamp(32px,min(4vw,7svh),46px)] lg:text-[clamp(34px,min(2.9vw,7svh),52px)] font-bold leading-[1.1] tracking-[-0.02em] text-white">
-              Expert Physiotherapy Care at Your Doorstep in Bangalore
+              Expert Physiotherapy & Rehabilitation in HBR Layout, Bangalore
             </h1>
 
             <p className="mt-[clamp(14px,2.4svh,22px)] animate-hero-right [animation-delay:500ms] max-w-[640px] text-[16px] leading-[1.6] text-white/90 md:text-[18px] 2xl:max-w-[700px] 2xl:text-[20px]">
-              Get personalised Home Physiotherapy support from experienced physiotherapists without the stress of
-              travelling to a clinic.
+              Personalised physiotherapy for pain management, injury rehabilitation and better mobility, guided by experienced physiotherapists.
             </p>
 
             {/* CTA */}
             <div className="mt-[clamp(22px,4svh,40px)] animate-hero-up [animation-delay:650ms] flex flex-col items-center gap-[12px] sm:flex-row sm:gap-[20px] 2xl:gap-[26px]">
               <a
                 href="#appointment"
-                className="flex min-h-[54px] items-center gap-[12px] rounded-full bg-[#c3d957] py-[10px] pl-[14px] pr-[22px] text-left text-[15px] font-medium leading-snug text-[#2b3320] transition-transform duration-200 hover:-translate-y-0.5 sm:whitespace-nowrap sm:pl-[16px] sm:text-[17px] 2xl:min-h-[60px] 2xl:pl-[20px] 2xl:pr-[24px] 2xl:text-[18px]"
+                className="flex min-h-[54px] w-full max-w-[344px] items-center justify-center gap-[10px] rounded-full bg-[#c3d957] px-[12px] py-[10px] text-center text-[14px] font-medium leading-snug text-[#2b3320] transition-transform duration-200 hover:-translate-y-0.5 sm:w-auto sm:max-w-none sm:justify-start sm:gap-[12px] sm:whitespace-nowrap sm:px-0 sm:pl-[16px] sm:pr-[22px] sm:text-left sm:text-[17px] 2xl:min-h-[60px] 2xl:pl-[20px] 2xl:pr-[24px] 2xl:text-[18px]"
               >
                 <PlusBadge className="h-[32px] w-[32px] shrink-0 bg-[#6b8440] text-white" />
-                <span className="max-[340px]:hidden">Book a Home Physiotherapy Consultation</span>
-                <span className="hidden max-[340px]:inline">Book Your Consultation</span>
+                <span>Consult Our Physiotherapist</span>
               </a>
             </div>
 
@@ -241,7 +239,7 @@ export default function HeroSection() {
           </div>
 
           {/* Bottom white tab */}
-          <div className="absolute bottom-0 left-1/2 z-20 animate-hero-up [animation-delay:900ms] w-[min(88%,780px)] -translate-x-1/2 max-[366px]:w-full lg:w-[min(90%,900px)]">
+          <div className="absolute bottom-0 left-1/2 z-20 animate-hero-up [animation-delay:900ms] w-[min(88%,780px)] -translate-x-1/2 max-[366px]:w-full lg:w-[min(94%,1040px)]">
             <svg
               viewBox="0 0 780 108"
               preserveAspectRatio="none"
@@ -254,19 +252,19 @@ export default function HeroSection() {
               />
             </svg>
 
-            <div className="relative flex h-[128px] flex-col items-center justify-center gap-[10px] px-[40px] pt-[10px] text-[10px] font-medium uppercase tracking-[0.14em] text-[#2b3320] max-[366px]:gap-[8px] max-[366px]:px-[22px] max-[366px]:text-[9px] max-[366px]:tracking-[0.06em] sm:px-[64px] sm:text-[11px] sm:tracking-[0.18em] lg:h-[108px] lg:gap-[20px] lg:px-[70px] lg:pt-[6px] lg:text-[12px] lg:tracking-[0.18em] 2xl:text-[13px] 2xl:tracking-[0.2em]">
-              <span className="flex animate-hero-left items-center gap-[12px] [animation-delay:1050ms] max-[366px]:gap-[8px] max-[366px]:whitespace-nowrap sm:whitespace-nowrap">
+            <div className="relative flex h-[140px] flex-col items-center justify-center gap-[10px] px-[40px] pt-[10px] text-[10px] font-medium uppercase tracking-[0.14em] text-[#2b3320] max-[366px]:gap-[8px] max-[366px]:px-[22px] max-[366px]:text-[9px] max-[366px]:tracking-[0.06em] text-center leading-[1.5] sm:h-[128px] sm:px-[64px] sm:text-[11px] sm:tracking-[0.14em] lg:text-[12px] xl:h-[108px] xl:gap-[20px] xl:px-[60px] xl:pt-[6px] xl:tracking-[0.12em] 2xl:text-[12.5px]">
+              <span className="flex animate-hero-left items-center gap-[12px] [animation-delay:1050ms] max-[366px]:gap-[8px] md:whitespace-nowrap">
                 <BrandMark className="h-[18px] w-[20px] shrink-0 max-[366px]:h-[14px] max-[366px]:w-[16px]" />
-                Experienced Physiotherapists at Home
+                Internationally Trained Physiotherapy Expertise
               </span>
-              <div className="flex flex-col items-center gap-[10px] max-[366px]:gap-[8px] lg:flex-row lg:gap-[26px]">
-                <span className="flex animate-hero-left items-center gap-[12px] whitespace-nowrap [animation-delay:1150ms] max-[366px]:gap-[8px]">
+              <div className="flex flex-col items-center gap-[10px] max-[366px]:gap-[8px] xl:flex-row xl:gap-[26px]">
+                <span className="flex animate-hero-left items-center gap-[12px] [animation-delay:1150ms] md:whitespace-nowrap max-[366px]:gap-[8px]">
                   <BrandMark className="h-[18px] w-[20px] shrink-0 max-[366px]:h-[14px] max-[366px]:w-[16px]" />
-                  Personalised Treatment Plans
+                  Focus on Long-Term Mobility &amp; Wellness
                 </span>
-                <span className="flex animate-hero-right items-center gap-[12px] whitespace-nowrap [animation-delay:1250ms] max-[366px]:gap-[8px]">
+                <span className="flex animate-hero-right items-center gap-[12px] [animation-delay:1250ms] md:whitespace-nowrap max-[366px]:gap-[8px]">
                   <BrandMark className="h-[18px] w-[20px] shrink-0 max-[366px]:h-[14px] max-[366px]:w-[16px]" />
-                  Support for Pain Relief &amp; Recovery
+                  Personalised Recovery Programmes
                 </span>
               </div>
             </div>

@@ -3,34 +3,39 @@ import SectionLabel from "./SectionLabel";
 
 const faqs = [
   {
-    question: "Who needs Home Physiotherapy?",
+    question: "What happens during my first physiotherapy consultation?",
     answer:
-      "Home Physiotherapy is ideal for individuals with pain, mobility challenges, recovery needs, age-related concerns, or difficulty travelling to a clinic.",
+      "Our physiotherapist evaluates your medical history, symptoms, posture, mobility, muscle strength and functional limitations before recommending a personalised treatment plan.",
   },
   {
-    question: "What conditions can be treated through Physiotherapy at Home?",
+    question: "How many physiotherapy sessions will I need?",
     answer:
-      "Home physiotherapy can support conditions like back pain, neck pain, knee pain, sports injuries, post-surgery recovery, arthritis, and mobility issues.",
+      "The number of sessions depends on your condition, severity of symptoms, physical assessment and individual recovery progress. Our physiotherapist will recommend a suitable treatment plan following your initial evaluation.",
   },
   {
-    question: "How does a home physiotherapy session work?",
+    question: "Is physiotherapy painful?",
     answer:
-      "A physiotherapist visits your home, assesses your condition, provides suitable therapy, guides exercises, and tracks your progress.",
+      "Some exercises or therapeutic techniques may cause temporary discomfort. However, our physiotherapists adjust treatment intensity according to your comfort level and clinical requirements.",
   },
   {
-    question: "How frequently are physiotherapy sessions required?",
+    question: "Can physiotherapy help with chronic pain?",
     answer:
-      "The number of sessions depends on your condition, recovery goals, and physiotherapist’s assessment.",
+      "Physiotherapy can help manage chronic pain through targeted exercises, movement correction, manual therapy and rehabilitation techniques, depending on the underlying condition.",
   },
   {
-    question: "Is Home Physiotherapy suitable for seniors?",
+    question: "Can physiotherapy help me avoid surgery?",
     answer:
-      "Yes. It provides seniors with comfortable support to improve mobility, strength, balance, and daily activities.",
+      "For certain conditions, physiotherapy may help improve mobility, strength and physical function through conservative management. However, the need for surgery depends on your individual medical condition.",
   },
   {
-    question: "Do I need any equipment at home?",
+    question: "How much does a physiotherapy consultation cost?",
     answer:
-      "No. Our physiotherapists bring the required equipment based on your treatment needs and guide you through suitable exercises during the sessions.",
+      "Consultation and treatment charges depend on the type of assessment and services required. Please connect with our team for detailed pricing information.",
+  },
+  {
+    question: "Can I receive physiotherapy without visiting the clinic?",
+    answer:
+      "Yes. Enhance offers home physiotherapy and telephysiotherapy consultations. Our team can recommend a suitable mode of care based on your condition.",
   },
 ];
 
@@ -52,8 +57,10 @@ function FaqItem({ faq, index, align }: { faq: Faq; index: number; align: "left"
 }
 
 export default function FaqSection() {
+  // Desktop: three questions on each side of the photo, the seventh under the photo
   const left = faqs.slice(0, 3);
-  const right = faqs.slice(3);
+  const right = faqs.slice(3, 6);
+  const last = faqs[6];
 
   return (
     <section id="faq" className="w-full bg-[#eef2e6] px-5 py-[32px] font-sans md:px-8 lg:py-[40px] xl:px-[46px]">
@@ -68,18 +75,18 @@ export default function FaqSection() {
         </div>
 
         {/* ================= CONTENT ================= */}
-        <div className="mt-[48px] grid grid-cols-1 items-center gap-[40px] lg:mt-[34px] lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)_minmax(0,1fr)] lg:gap-[48px] xl:gap-[64px]">
+        <div className="mt-[48px] grid grid-cols-1 items-center gap-[36px] lg:mt-[34px] lg:items-stretch lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)_minmax(0,1fr)] lg:gap-[48px] xl:gap-[64px]">
           {/* Left questions */}
-          <div className="order-2 flex flex-col gap-[36px] lg:order-1 lg:gap-[48px]">
+          <div className="order-2 flex flex-col gap-[36px] lg:order-1 lg:grid lg:grid-rows-3 lg:gap-[24px]">
             {left.map((faq, i) => (
               <FaqItem key={faq.question} faq={faq} index={i} align="right" />
             ))}
           </div>
 
           {/* Center image */}
-          <div className="order-1 mx-auto w-full max-w-[460px] lg:order-2">
-            <div className="relative rounded-t-[999px] rounded-b-[28px] border border-[#c9d4b4] p-[12px]">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[20px]">
+          <div className="order-1 mx-auto flex w-full max-w-[460px] flex-col gap-[24px] lg:order-2">
+            <div className="relative rounded-t-[999px] rounded-b-[28px] border border-[#c9d4b4] p-[12px] lg:flex lg:flex-1 lg:flex-col">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[20px] lg:aspect-auto lg:min-h-[380px] lg:flex-1">
                 <Image
                   src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652065/fta-mble.png"
                   alt="Guided rehabilitation exercises in a physiotherapy studio"
@@ -106,13 +113,21 @@ export default function FaqSection() {
                 <span className="text-[14px] font-medium text-[#1c1f1a] sm:text-[15px]">Care at Your Doorstep</span>
               </div>
             </div>
+
+            <div className="hidden rounded-[22px] bg-white p-[20px] lg:block">
+              <FaqItem faq={last} index={6} align="right" />
+            </div>
           </div>
 
           {/* Right questions */}
-          <div className="order-3 flex flex-col gap-[36px] lg:gap-[48px]">
+          <div className="order-3 flex flex-col gap-[36px] lg:grid lg:grid-rows-3 lg:gap-[24px]">
             {right.map((faq, i) => (
-              <FaqItem key={faq.question} faq={faq} index={i + 3} align="right" />
+              <FaqItem key={faq.question} faq={faq} index={i + left.length} align="right" />
             ))}
+            {/* phones & tablets: the seventh question follows the others */}
+            <div className="lg:hidden">
+              <FaqItem faq={last} index={6} align="right" />
+            </div>
           </div>
         </div>
       </div>
