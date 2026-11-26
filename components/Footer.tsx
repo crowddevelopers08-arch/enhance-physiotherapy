@@ -148,7 +148,7 @@ export default function Footer() {
             <span className="flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full bg-[#6b8440] text-white">
               <PlusIcon className="h-[14px] w-[14px]" />
             </span>
-            Book Appointment
+            Consult Our Physiotherapist
           </a>
         </div>
 

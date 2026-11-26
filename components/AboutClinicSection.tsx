@@ -32,15 +32,15 @@ export default function AboutClinicSection() {
           {/* Button */}
           <a
             href="#appointment"
-            className="group mt-[36px] inline-flex min-h-[64px] w-fit max-w-full items-center gap-[16px] rounded-full bg-[#6b8440] py-[8px] pl-[26px] pr-[8px] text-[16px] font-medium leading-snug text-white ring-2 ring-[#90a863]/40 ring-offset-2 ring-offset-white transition-colors duration-300 hover:bg-[#5d7437] sm:gap-[24px] sm:pl-[42px] sm:text-[20px]"
+            className="mt-[36px] flex min-h-[54px] w-fit max-w-full items-center gap-[10px] rounded-full bg-[#c3d957] py-[10px] pl-[12px] pr-[18px] text-left text-[14px] font-medium leading-snug text-[#2b3320] transition-transform duration-200 hover:-translate-y-0.5 sm:gap-[12px] sm:whitespace-nowrap sm:pl-[16px] sm:pr-[22px] sm:text-[17px] 2xl:min-h-[60px] 2xl:pl-[20px] 2xl:pr-[24px] 2xl:text-[18px]"
           >
-            <span className="max-[340px]:hidden">Book Your Consultation Today</span>
-            <span className="hidden max-[340px]:inline">Book Your Consultation</span>
-            <span className="flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full bg-[#26301c] transition-transform duration-300 group-hover:translate-x-1">
-              <svg viewBox="0 0 24 24" className="h-[20px] w-[20px]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M5 12h14M13 6l6 6-6 6" />
+            <span className="flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full bg-[#6b8440] text-white">
+              <svg viewBox="0 0 16 16" className="h-[14px] w-[14px]" aria-hidden="true">
+                <path d="M8 2.2v11.6M2.2 8h11.6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
               </svg>
             </span>
+            <span className="max-[340px]:hidden">Book Your Consultation Today</span>
+            <span className="hidden max-[340px]:inline">Book Your Consultation</span>
           </a>
           </div>
         </div>

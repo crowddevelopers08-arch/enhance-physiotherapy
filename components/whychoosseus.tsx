@@ -100,8 +100,7 @@ const TeamSection = () => {
             className="bg-[#c3d957] hover:bg-[#b3cb45] text-[#2b3320] font-semibold py-3.5 px-8 rounded-full flex items-center gap-2 transition-colors duration-300 text-base justify-center shadow-md"
             onClick={scrollToBooking}
           >
-            <span className="max-[340px]:hidden">Book Your Home Physiotherapy Visit</span>
-            <span className="hidden max-[340px]:inline">Book Your Consultation</span>
+            <span>Consult Our Physiotherapist</span>
             <ArrowIcon />
           </button>
         </div>
@@ -197,8 +196,7 @@ const TeamSection = () => {
           {/* 5. BUTTON - At the bottom after counter */}
           <div className="w-full mt-2 mb-4">
             <button className="bg-[#c3d957] hover:bg-[#b3cb45] text-[#2b3320] font-semibold py-3.5 px-6 rounded-xl flex items-center gap-2 transition-colors duration-300 text-sm sm:text-base w-full justify-center shadow-md" onClick={scrollToBooking}>
-              <span className="max-[340px]:hidden">Book Your Home Physiotherapy Visit</span>
-              <span className="hidden max-[340px]:inline">Book Your Consultation</span>
+              <span>Consult Our Physiotherapist</span>
               <ArrowIcon />
             </button>
           </div>

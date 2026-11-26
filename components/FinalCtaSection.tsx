@@ -43,8 +43,7 @@ export default function FinalCtaSection() {
                 <path d="M8 2.2v11.6M2.2 8h11.6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
               </svg>
             </span>
-            <span className="max-[340px]:hidden">Schedule A Physiotherapy Home Visit Today</span>
-            <span className="hidden max-[340px]:inline">Book Your Consultation</span>
+            <span>Consult Our Physiotherapist</span>
           </a>
         </div>
       </div>

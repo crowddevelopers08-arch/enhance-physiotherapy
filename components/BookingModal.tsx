@@ -170,10 +170,10 @@ export default function BookingModal() {
             <Image src="https://res.cloudinary.com/b5lvyi64/image/upload/v1794652054/enhance-emblem.png" alt="" width={766} height={608} className="h-[40px] w-auto shrink-0 sm:h-[46px]" />
             <div className="min-w-0">
               <span className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-[#6b8440]">
-                Book a Home Visit
+                Book a Consultation
               </span>
               <h2 id="booking-title" className="mt-[2px] text-[22px] font-bold leading-tight text-[#1c1f1a] sm:text-[26px]">
-                Schedule Your <span className="text-[#6b8440]">Consultation</span>
+                Talk to Our <span className="text-[#6b8440]">Physiotherapist</span>
               </h2>
             </div>
           </div>
@@ -263,7 +263,7 @@ export default function BookingModal() {
             disabled={submitting}
             className="group flex min-h-[52px] w-full sm:col-span-2 items-center justify-between rounded-full bg-[#6b8440] py-[7px] pl-[26px] pr-[7px] text-[16px] font-medium text-white transition-colors duration-300 hover:bg-[#5d7437] disabled:opacity-70"
           >
-            {submitting ? "Sending..." : "Book My Home Visit"}
+            {submitting ? "Sending..." : "Consult Our Physiotherapist"}
             <span className="flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#26301c] transition-transform duration-300 group-hover:translate-x-1">
               <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" />
